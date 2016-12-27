@@ -1,1 +1,3 @@
 # Madoko
+
+Some boring files.

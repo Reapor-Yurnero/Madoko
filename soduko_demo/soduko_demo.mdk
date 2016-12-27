@@ -1,0 +1,334 @@
+[INCLUDE=presentation]
+Title         : 数独浅谈
+Sub Title     : 古老的数字逻辑游戏
+Author        : 符晓浛
+Affiliation   : 上海交通大学
+Email         : reapor.yurnero@sjtu.edu.cn
+Reveal Theme  : sky
+Beamer Theme  : singapore
+
+
+[TITLE]
+# 标准数独
+
+~ Center
+
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
+***
+上图即为一个典型的标准数独
+~
+
+
+## 数独是什么
+数独 （日语：数独／すうどく Sūdoku）是一种逻辑性的数字填充游戏，玩家须以数字填进每一格，而每行、每列和每个宫（即3x3的大格）有齐1至9所有数字。游戏设计者会提供一部分的数字，使谜题只有一个答案。
+
+
+一个已解答的数独其实是一种多了宫的限制的拉丁方阵，因为同一个数字不可能在同一行、列或宫中出现多于一次。
+
+
+## 数独的起源
+
+数独起源于18世纪初瑞士数学家欧拉等人研究的拉丁方阵（Latin Square）。
+19世纪80年代，一位美国的退休建筑师格昂斯（Howard Garns）根据这种拉丁方阵发明了一种填数趣味游戏，这就是数独的雏形。20世纪70年代，人们在美国纽约的一本益智杂志《Math Puzzles and Logic Problems》上发现了这个游戏，当时被称为填数字（Number Place），这也是目前公认的数独最早的见报版本。1984年一位日本学者将其介绍到了日本，发表在Nikoli公司的一本游戏杂志上，当时起名为“Suuji wa dokushin ni kagiru”，就改名为“sudoku”，其中“su”是数字的意思，“doku”是单一的意思。后来一位前任香港高等法院的新西兰籍法官高乐德（Wayne Gould）在1997年3月到日本东京旅游时，无意中发现了。
+他首先在英国的《泰晤士报》上发表，不久其他报纸也发表，很快便风靡全英国。随着计算机信息技术的发展，数独开始在全世界流行。
+
+## 规则
+
+数独的规则非常简单：
+
+*   每一行由1~9单独出现一次
+*   每一列由1~9单独出现一次
+*   每一个小的九宫格1~9由单独出现一次
+
+~ Begin Vertical { data-background:Sky }
+
+## 解谜技巧
+[由上述的三条基本规则，我们可以衍生出摸索出一些简单实用的技巧。学习这些技巧，能有效的缩短解题的时间。]{ text-indent=10em }
+
+不过大家要始终牢记，所有的方法都来源于规则，因此，没有必要拘泥于一些所谓的方法，这些方法只是一些辅助，深入理解规则才是王道。
+
+~ Center
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
+~
+
+
+## 单向扫看法
+~ Center
+如下图所示，我们可以利用这种方法迅速地找出一些数字的正确位置。
+~
+~ Begin Columns
+~ Column { width:50% }
+![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1186.gif){width = 480px}
+
+~
+~ Column
+![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1187.gif){width = 480px}
+
+
+~
+~ End Columns
+
+## 双向向扫看法
+~ Center
+如下图所示，这种方法是单向法的变形。这两者是最常用的方法。
+~
+~ Begin Columns
+~ Column { width:50% }
+![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1186.gif){width = 480px}
+
+~
+~ Column
+![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1187.gif){width = 480px}
+
+~
+~ End Columns
+
+## 寻找候选法
+~ Center
+这是一种稍进阶的方法，常用来打破僵局。
+~
+~ Begin Columns
+~ Column { width:50% }
+![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1190.gif){width = 480px}
+
+~
+~ Column
+![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1191.gif){width = 480px}
+
+~
+~ End Columns
+
+## 数字排除法
+~ Center
+这是一种更进阶的方法，当你无路可走时，不妨采用此方法做一尝试。
+~
+~ Begin Columns
+~ Column { width:50% }
+![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1192.gif){width = 480px}
+
+~
+~ Column
+![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1193.gif){width = 480px}
+
+~
+~ End Columns
+
+<!-- # Basement Level 2
+
+Use `columns` to put blocks next to each other:
+
+~ Begin Columns
+~ Column { width:50% }
+A monarch butterfly (shown to the right)
+spends the winter in Mexico.
+~
+~ Column
+![butterfly]
+~
+~ End Columns
+
+[butterfly]: images/butterfly.png "A Monarch butterfly" { width:280px; vertical-align:middle }
+
+
+For local background images, we need to have a reference to the image
+such that it's data gets embedded into the HTML page. We define
+it using "display=none" so it is hidden in the presentation. 
+We can then refer to the image in "data-background-image". 
+
+
+![bfly]
+[bfly]: images/butterfly.png "Butterfly" { display:none }
+
+## Basement Level 3 { data-background-image:images/butterfly.png }
+That's it, time to go back up.
+
+[![arrowup]][back2]
+
+[arrowup]:  images/arrow.png "Up arrow" { width:178px; height:238px; transform:rotate(180deg) }
+[back2]:    #vertical { .image }
+-->
+
+~ End Vertical
+
+~ Begin Vertical
+
+
+## 实战时间
+
+~ Center
+请大家尝试尽快完成此题，最快完成正确作答的同学，将获取精美礼品一份
+***
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
+***
+~
+## 答案揭晓
+~ Center
+***
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample")
+***
+~
+~ End Vertical
+#特种数独
+在标准数独之外，还有一些后来者发明的更有趣更复杂的数独，例如杀手数独、对角线数独等，我将在此为大家略作分享。
+
+但无论千变万化，数独的基本规则始终不变，只是在此基础上有所补充。
+
+~ Begin Vertical
+
+##变形数独
+~ Center
+原先9x9中的小九宫格变成了不规则的形状，规则也随之改变。
+~
+
+~ Begin Columns
+~ Column { width:50% }
+![nonomino1](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/460px-A_nonomino_sudoku.svg.png){width = 480px}
+
+~
+~ Column
+![nonomino2](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/A_nonomino_sudoku_solution.svg/460px-A_nonomino_sudoku_solution.svg.png){width = 480px}
+
+~
+~ End Columns
+
+##对角线数独
+~ Center
+对角线数独在标准数独的基础上，增加了主对角线也要有1~9单次出现的要求，难度上升。
+
+![diagonal](https://imgsa.baidu.com/baike/w%3D268/sign=414ddf96cd95d143da76e3254bf28296/f9198618367adab4490728d68ed4b31c8601e44b.jpg){width = 500px}
+~
+
+##杀手数独
+
+最经典的特种数独之一，在标准数独的规则基础之上，还规定了指定形状区域内的数字之和，难度较大。
+
+~ Begin Columns
+~ Column { width:50% }
+![killer1](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Killersudoku_color.svg/408px-Killersudoku_color.svg.png){width = 480px}
+
+~
+~ Column
+![killer2](https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Killersudoku_color_solution.svg/408px-Killersudoku_color_solution.svg.png){width = 480px}
+
+~
+~ End Columns
+
+##超数独
+~ Center
+可能是最受欢迎的特种数独，难度很大。在标准数独的基础上，要求额外的九宫格满足条件。
+~
+
+~ Begin Columns
+~ Column { width:50% }
+![hyper1](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Oceans_Hypersudoku18_Puzzle.svg/225px-Oceans_Hypersudoku18_Puzzle.svg.png){width = 480px}
+
+~
+~ Column
+![killer2](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Oceans_Hypersudoku18_Solution.svg/1000px-Oceans_Hypersudoku18_Solution.svg.png){width = 480px}
+
+~
+~ End Columns
+
+~ End Vertical
+
+# 感谢您的聆听！
+<!--
+## Themes {#themes}
+
+Reveal.js comes with a few themes built in:
+
+* [Default](?#/themes)
+* [Sky](?theme=sky#/themes)
+* [Beige](?theme=beige#/themes)
+* [Serif](?theme=serif#/themes)
+* [Simple](?theme=simple#/themes)
+* [Night](?theme=night#/themes)
+* [Moon](?theme=moon#/themes)
+* [Solarized](?theme=solarized#/themes)
+
+Theme demos are loaded after the presentation which leads to flicker. In
+production you should load your theme in the `<head>` using a
+`<link>`.
+
+## Transitions { #transitions }
+
+You can select from different transitions, like:\
+[Cube](?transition=cube#/transitions) -
+[Page](?transition=page#/transitions) -
+[Concave](?transition=concave#/transitions) -
+[Zoom](?transition=zoom#/transitions) -
+[Linear](?transition=linear#/transitions) -
+[Fade](?transition=fade#/transitions) -
+[None](?transition=none#/transitions) -
+[Default](?#/transitions)
+
+
+
+## Pauses?
+
+Some pauses.
+
+* {.fragment} One
+* {.fragment} Two
+* {.fragment} Three
+
+And more:
+
+- Test 1
+- Test 2
+- Test 3
+{.fragmented}
+
+Cool!.
+
+~ Slide
+A slide with no header
+~
+
+
+## Point of View
+
+In Reveal.js Press **ESC** to enter the slide overview.
+
+Hold down alt and click on any element to zoom in on it using 
+ [zoom.js]. Alt + click anywhere to zoom back out.
+
+
+[zoom.js]: http://lab.hakim.se/zoom-js
+
+
+## Works in Mobile Safari
+
+Try it out! You can swipe through the slides and pinch your way to the
+overview.
+
+
+## Printing
+
+You can print a `revealjs` presentation nicely from the browser.
+
+First give the `?print-pdf` or `?print-paper` query on your final
+presentation (in the browser address bar) and then print from the Chrome
+browser selecting `Save to PDF`.
+
+Read more about it at the [revealjs documentation](https://github.com/hakimel/reveal.js#pdf-export)
+
+## RevealJS library
+
+Normally, the `revealjs` library is loaded from a CDN but you can specify your
+own url using metadata:
+
+    Reveal Url: <my url>
+
+This can be useful when using a [server to run revealjs](https://github.com/hakimel/reveal.js#full-setup)
+where you may use something like:
+
+    @nopreview Reveal Url: http://localhost:8000/reveal.js
+
+
+## Thanks for looking :-)
+-->
+
+[slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
+[slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}
+[slide-pdf]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.pdf

@@ -1,24 +1,23 @@
 p {
   font-family: Arial, "Microsoft YaHei",
-             "WenQuanYi Micro Hei", sans-serif; !important;
+             "WenQuanYi Micro Hei", sans-serif !important;
   text-indent: 2em;
   color: black;
 }
 
 h1{
-  font-family: Arial, "Microsoft YaHei",
-             "WenQuanYi Micro Hei", sans-serif !important;
+  font-family: Arial, "KaiTi", sans-serif !important;
   color: black;
 }
 
 h2{
-  font-family: Arial, "Microsoft YaHei",
+  font-family: Arial, "Kaiti",
              "WenQuanYi Micro Hei", sans-serif !important;
   color: black;
 }
 
 h3{
-  font-family: Arial, "Microsoft YaHei",
+  font-family: Arial, KaiTi,
              "WenQuanYi Micro Hei", sans-serif !important;
   color: black;
 }
@@ -26,3 +25,4 @@ h3{
 li{
   font-family: Arial, "Microsoft YaHei",
              "WenQuanYi Micro Hei", sans-serif !important;
+}

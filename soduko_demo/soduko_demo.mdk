@@ -13,20 +13,15 @@ Css: style.css
 # 标准数独
 
 ~ Center
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
-***
-上图即为一个典型的标准数独
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){height = 350px}
 ~
 
-
-## 数独是什么
+***
 数独 （日语：数独／すうどく Sūdoku）是一种逻辑性的数字填充游戏，玩家须以数字填进每一格，而每行、每列和每个宫（即3x3的大格）有齐1至9所有数字。游戏设计者会提供一部分的数字，使谜题只有一个答案。
 
 
-一个已解答的数独其实是一种多了宫的限制的拉丁方阵，因为同一个数字不可能在同一行、列或宫中出现多于一次。
 
-
-## 数独的起源
+## 数独的历史
 
 数独起源于18世纪初瑞士数学家欧拉等人研究的拉丁方阵（Latin Square）。
 19世纪80年代，一位美国的退休建筑师格昂斯（Howard Garns）根据这种拉丁方阵发明了一种填数趣味游戏，这就是数独的雏形。20世纪70年代，人们在美国纽约的一本益智杂志《Math Puzzles and Logic Problems》上发现了这个游戏，当时被称为填数字（Number Place），这也是目前公认的数独最早的见报版本。1984年一位日本学者将其介绍到了日本，发表在Nikoli公司的一本游戏杂志上，当时起名为“Suuji wa dokushin ni kagiru”，就改名为“sudoku”，其中“su”是数字的意思，“doku”是单一的意思。后来一位前任香港高等法院的新西兰籍法官高乐德（Wayne Gould）在1997年3月到日本东京旅游时，无意中发现了。
@@ -68,17 +63,17 @@ Css: style.css
 ~
 ~ End Columns
 
-## 双向向扫看法
+## 双向扫看法
 ~ Center
 如下图所示，这种方法是单向法的变形。这两者是最常用的方法。
 ~
 ~ Begin Columns
 ~ Column { width:50% }
-![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1186.gif){width = 480px}
+![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1188.gif){width = 480px}
 
 ~
 ~ Column
-![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1187.gif){width = 480px}
+![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1189.gif){width = 480px}
 
 ~
 ~ End Columns
@@ -151,23 +146,45 @@ That's it, time to go back up.
 ~ End Vertical
 
 ~ Begin Vertical
-
-
+  
 ## 实战时间
 
 ~ Center
 请大家尝试尽快完成此题，最快完成正确作答的同学，将获取精美礼品一份
 ***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){width = 500px}
 ***
 ~
 ## 答案揭晓
 ~ Center
 ***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample")
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample"){width = 500px}
 ***
 ~
 ~ End Vertical
+
+~ Begin Vertical
+  
+## 实战时间
+
+~ Center
+请大家尝试尽快完成此题，最快完成正确作答的同学，将获取精美礼品一份
+***
+![sample2.1]
+***
+~
+## 答案揭晓
+~ Center
+***
+![sample2.2]
+***
+~
+~ End Vertical
+
+[sample2.2]: images/sample2.2.png "sample2.2" {width = 500px}
+
+[sample2.1]: images/sample2.1.png "sample2.1" {width= 500px}
+
 #特种数独
 在标准数独之外，还有一些后来者发明的更有趣更复杂的数独，例如杀手数独、对角线数独等，我将在此为大家略作分享。
 
@@ -182,11 +199,11 @@ That's it, time to go back up.
 
 ~ Begin Columns
 ~ Column { width:50% }
-![nonomino1](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/460px-A_nonomino_sudoku.svg.png){width = 480px}
+![nonomino1](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/460px-A_nonomino_sudoku.svg.png){width = 450px}
 
 ~
 ~ Column
-![nonomino2](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/A_nonomino_sudoku_solution.svg/460px-A_nonomino_sudoku_solution.svg.png){width = 480px}
+![nonomino2](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/A_nonomino_sudoku_solution.svg/460px-A_nonomino_sudoku_solution.svg.png){width = 450px}
 
 ~
 ~ End Columns

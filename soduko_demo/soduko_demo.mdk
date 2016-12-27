@@ -6,7 +6,7 @@ Affiliation   : 上海交通大学
 Email         : reapor.yurnero@sjtu.edu.cn
 Reveal Theme  : sky
 Beamer Theme  : singapore
-
+Css: style.css
 
 [TITLE]
 # 标准数独

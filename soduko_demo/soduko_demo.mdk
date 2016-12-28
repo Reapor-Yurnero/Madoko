@@ -46,6 +46,21 @@ Css: style.css
 ![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample")
 ~
 
+## 查找空缺法
+~ Center
+   此方法常用于即将完成（已知6、7、8个数）的行、列、宫。
+~
+
+~ Begin Columns
+~ Column { width:50% }
+![skill0.1](http://www.conceptispuzzles.com/zh/picture/27/1194.gif){width = 480px}
+
+~
+~ Column
+  <img class="fragment fade-in" data-fragment-index="0" width="480" src="http://www.conceptispuzzles.com/zh/picture/27/1195.gif" title="skill0.2"/>
+
+~
+~ End Columns
 
 ## 单向扫看法
 ~ Center
@@ -57,8 +72,7 @@ Css: style.css
 
 ~
 ~ Column
-![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1187.gif){width = 480px}
-
+  <img class="fragment fade-in" data-fragment-index="0" width="480" src="http://www.conceptispuzzles.com/zh/picture/27/1187.gif" title="skill1.2"/>
 
 ~
 ~ End Columns
@@ -69,12 +83,11 @@ Css: style.css
 ~
 ~ Begin Columns
 ~ Column { width:50% }
-![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1188.gif){width = 480px}
+![skill2.1](http://www.conceptispuzzles.com/zh/picture/27/1188.gif){width = 480px}
 
 ~
 ~ Column
-![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1189.gif){width = 480px}
-
+  <img class="fragment fade-in" data-fragment-index="0" width="480" src="http://www.conceptispuzzles.com/zh/picture/27/1189.gif" title="skill2.2"/>
 ~
 ~ End Columns
 
@@ -84,11 +97,11 @@ Css: style.css
 ~
 ~ Begin Columns
 ~ Column { width:50% }
-![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1190.gif){width = 480px}
+![skill3.1](http://www.conceptispuzzles.com/zh/picture/27/1190.gif){width = 480px}
 
 ~
 ~ Column
-![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1191.gif){width = 480px}
+  <img class="fragment fade-in" data-fragment-index="0" width="480" src="http://www.conceptispuzzles.com/zh/picture/27/1191.gif" title="skill3.2"/>
 
 ~
 ~ End Columns
@@ -99,12 +112,11 @@ Css: style.css
 ~
 ~ Begin Columns
 ~ Column { width:50% }
-![skill1.1](http://www.conceptispuzzles.com/zh/picture/27/1192.gif){width = 480px}
+![skill4.1](http://www.conceptispuzzles.com/zh/picture/27/1192.gif){width = 480px}
 
 ~
 ~ Column
-![skill1.2](http://www.conceptispuzzles.com/zh/picture/27/1193.gif){width = 480px}
-
+  <img class="fragment fade-in" data-fragment-index="0" width="480" src="http://www.conceptispuzzles.com/zh/picture/27/1193.gif" title="skill4.2"/>
 ~
 ~ End Columns
 
@@ -144,25 +156,6 @@ That's it, time to go back up.
 -->
 
 ~ End Vertical
-
-~ Begin Vertical
-  
-## 实战时间
-
-~ Center
-请大家尝试尽快完成此题，最快完成正确作答的同学，将获取精美礼品一份
-***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){width = 500px}
-***
-~
-## 答案揭晓
-~ Center
-***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample"){width = 500px}
-***
-~
-~ End Vertical
-
 ~ Begin Vertical
   
 ## 实战时间
@@ -185,6 +178,25 @@ That's it, time to go back up.
 
 [sample2.1]: images/sample2.1.png "sample2.1" {width= 500px}
 
+~ Begin Vertical
+  
+## 实战时间
+
+~ Center
+请大家尝试尽快完成此题，最快完成正确作答的同学，将获取精美礼品一份
+***
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){width = 500px}
+***
+~
+## 答案揭晓
+~ Center
+***
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample"){width = 500px}
+***
+~
+~ End Vertical
+
+
 #特种数独
 在标准数独之外，还有一些后来者发明的更有趣更复杂的数独，例如杀手数独、对角线数独等，我将在此为大家略作分享。
 
@@ -203,7 +215,7 @@ That's it, time to go back up.
 
 ~
 ~ Column
-![nonomino2](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/A_nonomino_sudoku_solution.svg/460px-A_nonomino_sudoku_solution.svg.png){width = 450px}
+  ![nonomino1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/A_nonomino_sudoku_solution.svg/460px-A_nonomino_sudoku_solution.svg.png){width = 450px}
 
 ~
 ~ End Columns
@@ -249,6 +261,9 @@ That's it, time to go back up.
 ~ End Vertical
 
 # 感谢您的聆听！
+
+
+
 <!--
 ## Themes {#themes}
 

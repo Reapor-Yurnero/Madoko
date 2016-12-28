@@ -161,7 +161,7 @@ That's it, time to go back up.
 ## 实战时间
 
 ~ Center
-下面是一道难度较低的题目，最快完成正确作答的同学，将获取精美礼品一份，前十名完成的同学，也都会获得额外的奖品。
+下面是一道难度较低的题目，最快完成正确作答的同学，将获取精美礼品一份，前十名完成的同学，也都会获得奖品。
 ***
 ![sample2.1]
 ***
@@ -174,9 +174,9 @@ That's it, time to go back up.
 ~
 ~ End Vertical
 
-[sample2.2]: images/sample2.2.png "sample2.2" {width = 500px}
+[sample2.2]: images/sample2.2.png "sample2.2" {height = 450px}
 
-[sample2.1]: images/sample2.1.png "sample2.1" {width= 500px}
+[sample2.1]: images/sample2.1.png "sample2.1" {height= 450px}
 
 ~ Begin Vertical
   
@@ -185,13 +185,13 @@ That's it, time to go back up.
 ~ Center
 此题难度较大，大家完成第一题后可以略作尝试，能在课上完成的同学将获赠一本数独书。
 ***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){width = 500px}
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/364px-Sudoku-by-L2G-20050714.svg.png "a easy sample"){height = 450px}
 ***
 ~
 ## 答案揭晓
 ~ Center
 ***
-![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample"){width = 500px}
+![sudoku_sample1](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/364px-Sudoku-by-L2G-20050714_solution.svg.png "solution for sample"){height = 450px}
 ***
 ~
 ~ End Vertical

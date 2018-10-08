@@ -1,0 +1,417 @@
+[INCLUDE=presentation]
+Title         : VE370 RC2
+Sub Title     : 
+Author        : Xiaohan Fu
+Affiliation   : UMJI-SJTU
+Email         : reapor.yurnero@sjtu.edu.cn
+Reveal Theme  : sky
+Beamer Theme  : singapore
+
+[TITLE]
+
+# Content
+
+[TOC]
+
+# Lecture Recap
+
+## Lecture One
+
+~ Begin Framed { padding:1ex; margin-top:1ex }
+CPU Time 
+
+= CPU Clock Cycles per program × Clock Cycle Time
+
+= CPU Clock Cycles / Clock Rate
+
+= Instruction Count(IC) × Clock Cycles per Instruction(CPI) / Clock Rate
+
+~ End Framed
+  
+
+Algorithm: affects IC, possibly CPI 
+
+Programming language: affects IC, CPI
+
+Compiler: affects IC, CPI 
+
+Instruction set architecture: affects IC, CPI, T~c~
+
+<!--
+~~ Notes
+Oh hey, these are some notes. They'll be hidden in your presentation, but you
+can see them if you open the speaker notes window (hit 's' on your keyboard).
+~~
+-->
+
+# HW2 Solution
+
+<!-- Example of nested vertical slides -->
+~ Begin Vertical
+
+## HW2. 1 {#vertical}
+1. Convert the following assembly code fragment into machine code, assuming the memory location of the first instruction is 0x10000400:
+
+``` javascript
+LOOP:	
+    slt 	$t2, $zero, $t0
+	bne	$t2, $zero, ELSE
+	j	DONE
+ELSE:	
+    addi	$s2, $s2, 2
+	addiu $t0, $t0, 1
+    j	LOOP
+DONE:
+```
+
+## HW2. 1
+
+Solution:
+~ Begin Center
+000000 00000 01000 01010 00000 101010 
+
+000101 01010 00000 00000 00000 000001 
+
+000010 00000 00000 00000 00100 000110 
+
+001000 10010 10010 00000 00000 000010 
+
+001001 01000 01000 00000 00000 000001 
+
+000010 00000 00000 00000 00100 000000
+
+Note that the sequence of \$rt, \$rs and \$rd is not the same in between machine code and MIPS.
+~ End Center
+
+~ End Vertical
+
+~ Begin Vertical
+## HW2. 2
+2. Following memory location has address 0x10000000 and content 0x15478933. 
+
+Write MIPS assembly instructions to load the byte 47 to register \$s1, then show the content of \$s1 after the operations. (5 points)
+
+---
+Solution:
+``` Javascript
+  lui $t0, 4096
+  lb  $s1, 1($t0)
+```
+
+~ End Vertical
+
+~ Begin Vertical
+
+## HW2. 3
+
+~ Begin Center
+![Screen Shot 2018-10-08 at 4.10.16 PM]
+[Screen Shot 2018-10-08 at 4.10.16 PM]: images/Screen-Shot-2018-10-08-at-4.10.16-PM.png "Screen Shot 2018-10-08 at 4.10.16 PM" { width:auto; max-width:100% }
+~ End Center
+
+## HW2. 3
+
+2.19.1 Implement the C code in the table in MIPS assembly. What is the total number of MIPS instructions needed to execute the function?
+___
+Solution:
+~ Begin Columns
+~ Column {width:50%}
+```javascript
+FIB:
+  addi  $sp, $sp, -12
+  sw    $ra, 8($sp)
+  sw    $s1, 4($sp)
+  sw    $a0, 0($sp)
+
+  slti  $t0, $a0, 3
+  beq   $t0, $0,  L1
+  slti  $t1, $0,  $a0
+  add   $v0, $0,  $t1
+  j     EXIT
+```
+~
+~ Column
+```javascript
+ L1:
+  addi  $a0, $a0, -1
+  jal   FIB
+  addi  $s1, $v0, $0
+  addi  $a0, $a0, -1
+
+  jal   FIB
+  add   $v0, $v0, $s1
+
+EXIT:
+  lw    $a0, 0($sp)
+  lw    $s1, 4($sp)
+  lw    $ra, 8($sp)
+  addi  $sp, $sp, 12
+  jr    $ra
+```
+~  
+~ End Columns
+
+## HW2. 4
+
+2.19.2 <2.8> Functions can often be implemented by compilers “in-line.” An in-line function is when the body of the function is copied into the program space, allowing the overhead of the function call to be eliminated. Implement an “in-line” version of the the C code in the table in MIPS assembly. What is the reduction in the total number of MIPS assembly instructions needed to complete the function? Assume that the C variable n is initialized to 5.
+___
+Solution: Due to the recursive nature of the code, not possible for the compiler to in-line the function call..
+
+## HW2. 5
+
+2.19.3 <2.8> For each function call, show the contents of the stack after the function call is made. Assume the stack pointer is originally at address 0x7ffffffc, and follow the register conventions as specified in Figure 2.11.
+___
+Solution:
+~ Begin Center
+![Screen Shot 2018-10-08 at 4.26.39 PM]
+
+[Screen Shot 2018-10-08 at 4.26.39 PM]: images/Screen-Shot-2018-10-08-at-4.26.39-PM.png "Screen Shot 2018-10-08 at 4.26.39 PM" { width:auto; max-width:90% }
+
+~ End Center
+
+~ End Vertical
+
+~ Begin Vertical
+
+## HW2. 6
+
+2.23.1 <2.9> Write a program in MIPS assembly language to convert an ASCII number string with the conditions listed in the table above, to an integer. Your program should expect register \$a0 to hold the address of a null-terminated string containing some combination of the digits 0 through 9. Your program should compute the integer value equivalent to this string of digits, then place the number in register \$v0. If a non-digit character appears anywhere in the string, your program should stop with the value –1 in register \$v0. For example, if register \$a0 points to a sequence of three bytes 50~ten~ , 52~ten~ , 0~ten~ (the null-terminated string “24”), then when the program stops, register \$v0 should contain the value 24~ten~.
+
+a). positive and negative integer decimal strings
+
+## HW2. 6
+
+Solution:
+
+~ Begin Center
+![Screen Shot 2018-10-08 at 4.36.45 PM]
+
+[Screen Shot 2018-10-08 at 4.36.45 PM]: images/Screen-Shot-2018-10-08-at-4.36.45-PM.png "Screen Shot 2018-10-08 at 4.36.45 PM" { width:auto; max-width:90% }
+
+~ End Center
+
+~ End Vertical
+
+~ Begin Vertical
+## HW2. 7
+~ Begin Center
+![Screen Shot 2018-10-08 at 4.45.53 PM]
+
+[Screen Shot 2018-10-08 at 4.45.53 PM]: images/Screen-Shot-2018-10-08-at-4.45.53-PM.png "Screen Shot 2018-10-08 at 4.45.53 PM" { width:auto; max-width:100% }
+
+![Screen Shot 2018-10-08 at 4.46.20 PM]
+
+[Screen Shot 2018-10-08 at 4.46.20 PM]: images/Screen-Shot-2018-10-08-at-4.46.20-PM.png "Screen Shot 2018-10-08 at 4.46.20 PM" { width:auto; max-width:100% }
+___
+Solution:    b. 0x00000011
+
+~ End Center
+
+~ End Vertical
+
+~ Begin Vertical
+## HW2. 8
+~ Begin Center
+![Screen Shot 2018-10-08 at 4.53.34 PM]
+
+[Screen Shot 2018-10-08 at 4.53.34 PM]: images/Screen-Shot-2018-10-08-at-4.53.34-PM.png "Screen Shot 2018-10-08 at 4.53.34 PM" { width:auto; max-width:100% }
+~ End Center
+___
+Solution:
+
+Since $0\text{x}00020000 = 2^{15} \cdot 4$, one branch is just enough.
+
+## HW2. 9
+~ Begin Center
+![Screen Shot 2018-10-08 at 5.03.57 PM]
+
+[Screen Shot 2018-10-08 at 5.03.57 PM]: images/Screen-Shot-2018-10-08-at-5.03.57-PM.png "Screen Shot 2018-10-08 at 5.03.57 PM" { width:auto; max-width:100% }
+
+~ End Center
+___
+Solution:
+
+b. Infeasible since the first 4-bit of address is not identical.
+
+## HW2. 9
+~ Begin Center
+![Screen Shot 2018-10-08 at 5.09.42 PM]
+
+[Screen Shot 2018-10-08 at 5.09.42 PM]: images/Screen-Shot-2018-10-08-at-5.09.42-PM.png "Screen Shot 2018-10-08 at 5.09.42 PM" { width:auto; max-width:100% }
+~ End Center
+___
+Solution:
+
+b. Since $0\text{xFFFFFF}00 = -256_{10}$ and $ 256 < 2^7\cdot4$, one branch is enough.
+
+## HW2. 10
+~ Begin Center
+![Screen Shot 2018-10-08 at 5.15.59 PM]
+
+[Screen Shot 2018-10-08 at 5.15.59 PM]: images/Screen-Shot-2018-10-08-at-5.15.59-PM.png "Screen Shot 2018-10-08 at 5.15.59 PM" { width:auto; max-width:100% }
+~ End Center
+___
+Solution:\
+a. 16 times smaller range
+
+b. 4 times smaller range
+
+~ End Vertical
+
+## HW2. 11
+~ Begin Center
+![Screen Shot 2018-10-08 at 5.22.54 PM]
+
+[Screen Shot 2018-10-08 at 5.22.54 PM]: images/Screen-Shot-2018-10-08-at-5.22.54-PM.png "Screen Shot 2018-10-08 at 5.22.54 PM" { width:auto; max-width:100% }
+
+~ End Center
+___
+Solution:\
+a. sw I-type
+
+b. j J-type
+
+# Project One Tips
+
++ Strictly follow our required settings
++ Come to our OH for detailed problem
++ Take good use of step-by-step forwarding
++ Add one/two bubbles after some specific instructions, etc. SW/LW, BNE/BEQ, J/JAL/JR (You will learn why in later lectures)
++ Don't cheat for the final correct answer
+
+<!--
+Use `columns` to put blocks next to each other:
+
+~ Begin Columns
+~ Column { width:50% }
+A monarch butterfly (shown to the right)
+spends the winter in Mexico.
+~
+~ Column
+![butterfly]
+~
+~ End Columns
+-->
+
+[butterfly]: images/butterfly.png "A Monarch butterfly" { width:280px; vertical-align:middle }
+
+
+<!-- 
+For local background images, we need to have a reference to the image
+such that it's data gets embedded into the HTML page. We define
+it using "display=none" so it is hidden in the presentation. 
+We can then refer to the image in "data-background-image". 
+-->
+
+![bfly]
+[bfly]: images/butterfly.png "Butterfly" { display:none }
+
+<!--
+## Basement Level 3 { data-background-image:images/butterfly.png }
+That's it, time to go back up.
+
+[![arrowup]][back2]
+
+[arrowup]:  images/arrow.png "Up arrow" { width:178px; height:238px; transform:rotate(180deg) }
+[back2]:    #vertical { .image }
+
+
+## Themes {#themes}
+
+Reveal.js comes with a few themes built in:
+
+* [Default](?#/themes)
+* [Sky](?theme=sky#/themes)
+* [Beige](?theme=beige#/themes)
+* [Serif](?theme=serif#/themes)
+* [Simple](?theme=simple#/themes)
+* [Night](?theme=night#/themes)
+* [Moon](?theme=moon#/themes)
+* [Solarized](?theme=solarized#/themes)
+
+Theme demos are loaded after the presentation which leads to flicker. In
+production you should load your theme in the `<head>` using a
+`<link>`.
+
+## Transitions { #transitions }
+
+You can select from different transitions, like:\
+[Cube](?transition=cube#/transitions) -
+[Page](?transition=page#/transitions) -
+[Concave](?transition=concave#/transitions) -
+[Zoom](?transition=zoom#/transitions) -
+[Linear](?transition=linear#/transitions) -
+[Fade](?transition=fade#/transitions) -
+[None](?transition=none#/transitions) -
+[Default](?#/transitions)
+
+
+
+## Pauses?
+
+Some pauses.
+
+* {.fragment} One
+* {.fragment} Two
+* {.fragment} Three
+
+And more:
+
+- Test 1
+- Test 2
+- Test 3
+{.fragmented}
+
+Cool!.
+
+~ Slide
+A slide with no header
+~
+
+
+## Point of View
+
+In Reveal.js Press **ESC** to enter the slide overview.
+
+Hold down alt and click on any element to zoom in on it using 
+ [zoom.js]. Alt + click anywhere to zoom back out.
+
+
+[zoom.js]: http://lab.hakim.se/zoom-js
+
+
+## Works in Mobile Safari
+
+Try it out! You can swipe through the slides and pinch your way to the
+overview.
+
+
+## Printing
+
+You can print a `revealjs` presentation nicely from the browser.
+
+First give the `?print-pdf` or `?print-paper` query on your final
+presentation (in the browser address bar) and then print from the Chrome
+browser selecting `Save to PDF`.
+
+Read more about it at the [revealjs documentation](https://github.com/hakimel/reveal.js#pdf-export)
+
+## RevealJS library
+
+Normally, the `revealjs` library is loaded from a CDN but you can specify your
+own url using metadata:
+
+    Reveal Url: <my url>
+
+This can be useful when using a [server to run revealjs](https://github.com/hakimel/reveal.js#full-setup)
+where you may use something like:
+
+    @nopreview Reveal Url: http://localhost:8000/reveal.js
+
+
+## Thanks for looking :-)
+
+[slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
+[slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}
+[slide-pdf]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.pdf
+-->

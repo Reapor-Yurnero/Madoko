@@ -1,5 +1,6 @@
 [INCLUDE=presentation]
 Title         : VE370 Mid Review
+subtitle : aka RC5
 Author        : VE370 TA Group
 Affiliation   : UMJI-SJTU
 Reveal Theme  : sky
@@ -58,7 +59,8 @@ EX:
 
 MEM:
 
-* Write the value of R16 into the target address in data memory
+* Write the value of R16 into the target address in DMEM
+* Calculate the PCsrc signal for branch (useless)
 ~
 
 
@@ -76,7 +78,7 @@ LOOP:
   slt $1, $2, $5
   beq $1, $9, LOOP
 ```
-[4.16.4(b)]{font-weight:bold} Show  a  pipeline  execution  diagram  for  the  third  iteration  of  this  loop,  from  the  cycle  in  which  we  fetch  the  first  instruction  of  that  iteration  up  to  (but  not  including)  the  cycle  in  which  we  can  fetch  the  first  instruction  of  the  next  iteration.  Show  all  instructions  that  are  in  the  pipeline  during  these  cycles  (not  just  those  from  the  third  iteration).
+[4.16.4(b)]{font-weight:bold} Show  a  pipeline  execution  diagram  for  the  third  iteration  of  this  loop,  from  the  cycle  in  which  we  fetch  the  first  instruction  of  that  iteration  up  to  (but  not  including)  the  cycle  in  which  we  can  fetch  the  first  instruction  of  the  next  iteration.  Show  all  instructions  that  are  in  the  pipeline  during  these  cycles  (not  just  those  from  the  third  iteration). Assume that  no  stalls  due  to  control  hazards,  that  there are no  delay slots,  and  that  the  pipeline  has  full  forwarding   support.
 
 ## HW 5. 4
 
@@ -85,7 +87,6 @@ Solution:
 ~ Begin Columns
 ~ Column {weight:50%}
 ``` mips
-              add $1, $1, $2
               lw  $1, 0($1)
               lw  $1, 0($1)
               beq $1, $0, LOOP
@@ -100,18 +101,19 @@ LOOP: (4th)   lw  $1, 0($1)
 ~ Column
 ``` mips
 WB
-MEM WB
 EX  MEM WB
-ID  EX  MEM WB
-IF  ID  EX  MEM WB
-    IF  ID  EX  MEM WB
-        IF  ID  EX  MEM
-            IF  ID  EX
-                IF  ID
-                    IF
+ID  NOP EX  MEM WB
+IF  NOP ID  EX  MEM WB
+        IF  ID  NOP EX  MEM WB
+            IF  NOP ID  EX  MEM WB
+                    IF  ID  NOP EX
+                        IF  NOP ID
+                                IF
 ```
 ~
 ~ End Columns
+
+Notice that load-use hazard must be dealt with stall.
 
 ## HW 5. 5 & 5. 6
 
@@ -119,10 +121,10 @@ IF  ID  EX  MEM WB
 
 ---
 
-`lw`{language:mips} fully takes use of all stages; `add`{language:mips} does no useful work in MEM; `beq`{language:mips} does no useful work in WB
+`lw`{language:mips} fully takes use of all stages; `add, slt`{language:mips} does no useful work in MEM; `beq`{language:mips} does no useful work in WB
 {.fragment}
 
-Only the first three clocks out of five are fully used.
+Only the two clocks out of eight are fully used.
 {margin-bottom:3%; .fragment}
 
 [4.16.6(b)]{font-weight:bold} At  the  start  of  the  cycle  in  which  we  fetch  the  first  instruction  of  the  third  iteration  of  this  loop,  what  is  stored  in  the  IF/ID  register?
@@ -166,7 +168,7 @@ b. 20%+10% = 30%
 [Screen Shot 2018-10-27 at 9.20.45 PM]: images/Screen-Shot-2018-10-27-at-9.20.45-PM.png "Screen Shot 2018-10-27 at 9.20.45 PM" { width:auto; max-width:100% }
 ~ End Center
 
-[4.18.1 (b)]{font-weight:bold}
+[4.18.1 (a)]{font-weight:bold}
 
 * {.fragment}Ex: ALUop: 00; RegDst: 0; ALUSrc: 1
 * {.fragment}MEM: Branch: 0; MEMWrite: 0; MEMRead: 1
@@ -255,9 +257,9 @@ The only difference is that originally load-use harzard only affects the very ne
 ---
 
 ~ {.fragment}
-Without forwarding, the written reg can only be updated after two cycles of the execution.
+Without forwarding, the written reg can only be updated after two cycles of the execution. (stall active for load-use)
 
-\$1 = 0; \$2 = 0; \$3 = 30$\lor$31 = 31~dec~
+\$1 = 0; \$2 = 0; \$3 = 30$\lor$0 = 30~dec~
 {text-align: center}
 ~ 
 

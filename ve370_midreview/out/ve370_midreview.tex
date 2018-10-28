@@ -29,28 +29,31 @@
 
 
 
-%mdk-data-line={9}
-%mdk-data-line={9}
 %mdk-data-line={10}
+%mdk-data-line={10}
+%mdk-data-line={11}
 \mdxtitleblockstart{}
-%mdk-data-line={10}
-\mdxtitle{{\mdfontsize{3em}\mdline{10}VE370 Mid Review}}%mdk
+%mdk-data-line={11}
+\mdxtitle{{\mdfontsize{3em}\mdline{11}VE370 Mid Review}}%mdk
 
-%mdk-data-line={13}
-\mdxtitlenote{\mdline{13}2018-10-28}%mdk
+%mdk-data-line={14}
+\mdxsubtitle{{\mdfontsize{1.8em}\mdline{14}aka RC5}}%mdk
+
+%mdk-data-line={17}
+\mdxtitlenote{\mdline{17}2018-10-28}%mdk
 \mdxauthorstart{\Large{}
-%mdk-data-line={18}
-\mdxauthorname{{\mdfontsize{1.4em}\mdline{18}VE370 TA Group}}%mdk
+%mdk-data-line={22}
+\mdxauthorname{{\mdfontsize{1.4em}\mdline{22}VE370 TA Group}}%mdk
 
-%mdk-data-line={21}
-\mdxauthoraddress{\mdline{21}UMJI-SJTU}%mdk
+%mdk-data-line={25}
+\mdxauthoraddress{\mdline{25}UMJI-SJTU}%mdk
 }\mdxauthorend\mdtitleauthorrunning{}{}\mdxtitleblockend%mdk
 
-%mdk-data-line={12}
+%mdk-data-line={13}
 \begin{mdframe}%mdk
 
 \frametitle{Content}\label{heading-sec-content}%mdk%mdk
-\mdline{14}
+\mdline{15}
 \begin{mdtoc}%mdk
 
 \begin{mdtocblock}%mdk
@@ -87,13 +90,9 @@
 %mdk
 \end{mdtocblock}%mdk
 
-\mdtocitemx{sec-review}{\mdref{sec-review}{3.\hspace*{0.5em}Review}}%mdk
+\mdtocitemx{sec-tips}{\mdref{sec-tips}{3.\hspace*{0.5em}Tips}}%mdk
 
-\begin{mdtocblock}%mdk
-
-\mdtocitemx{sec-a-few-more-exercise}{\mdref{sec-a-few-more-exercise}{3.1.\hspace*{0.5em}A few more exercise}}%mdk
-%mdk
-\end{mdtocblock}%mdk
+\mdtocitemx{sec-good-luck-}{\mdref{sec-good-luck-}{4.\hspace*{0.5em}Good Luck !}}%mdk
 %mdk
 \end{mdtocblock}%mdk
 %mdk
@@ -101,49 +100,59 @@
 %mdk
 \end{mdframe}\label{sec-content}%mdk%mdk
 
-%mdk-data-line={16}
+%mdk-data-line={17}
 \begin{mdframe}%mdk
 
 \frametitle{HW5 Sample Solution}\label{heading-sec-hw5-sample-solution}%mdk%mdk
 %mdk
 \end{mdframe}\label{sec-hw5-sample-solution}%mdk%mdk
 
-%mdk-data-line={20}
+%mdk-data-line={21}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 1}\label{heading-sec-hw-5-1}%mdk%mdk
 \begin{mdpre}%mdk
 \noindent~~{\mdcolor{navy}sw}~{\mdcolor{teal}R16},–{\mdcolor{purple}100}({\mdcolor{teal}R6})%mdk
-\end{mdpre}\noindent\mdline{26}{\bfseries 4.16.1 (a)}\mdline{26} As  this  instruction  executes,  what  is  kept  in  each  register  located  between  two  pipeline  stages? 
+\end{mdpre}\noindent\mdline{27}{\bfseries 4.16.1 (a)}\mdline{27} As  this  instruction  executes,  what  is  kept  in  each  register  located  between  two  pipeline  stages? 
 
-%mdk-data-line={28}
+%mdk-data-line={29}
 \mdhr{}%mdk
 
-%mdk-data-line={30}
+%mdk-data-line={31}
 \begin{itemize}%mdk
-\begin{mdfragmented}%mdk
 
-%mdk-data-line={30}
+%mdk-data-line={31}
+\begin{onlyenv}<+->%mdk
 \item{}
-%mdk-data-line={30}
-\mdline{30}IF/ID: PC+4, instruction%mdk%mdk
-
-%mdk-data-line={32}
-\item{}
-%mdk-data-line={32}
-\mdline{32}ID/EX: PC+4, ReadData1(\mdline{32}\$\mdline{32}6), ReadData2(\mdline{32}\$\mdline{32}16), offset:\mdline{32} \mdline{32}-100(32b), Rs Rt field in this instruction, all control signals%mdk%mdk
-
-%mdk-data-line={34}
-\item{}
-%mdk-data-line={34}
-\mdline{34}EX/MEM: PC+4+offset, ReadData2(\mdline{34}\$\mdline{34}16), control signals for WB and MEM, Rs Rt field in this instruction, ALU result and ALU zero%mdk%mdk
-
-%mdk-data-line={36}
-\item{}
-%mdk-data-line={36}
-\mdline{36}MEM/WB: Control sinals for WB, ReadData from MEM, ALUresult, Selected Reg Destination%mdk%mdk
+%mdk-data-line={31}
+\mdline{31}IF/ID: PC+4, instruction%mdk
 %mdk
-\end{mdfragmented}%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={33}
+\begin{onlyenv}<+->%mdk
+\item{}
+%mdk-data-line={33}
+\mdline{33}ID/EX: PC+4, ReadData1(\mdline{33}\$\mdline{33}6), ReadData2(\mdline{33}\$\mdline{33}16), offset:\mdline{33} \mdline{33}-100(32b), Rs Rt field in this instruction, all control signals%mdk
+%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={35}
+\begin{onlyenv}<+->%mdk
+\item{}
+%mdk-data-line={35}
+\mdline{35}EX/MEM: PC+4+offset, ReadData2(\mdline{35}\$\mdline{35}16), control signals for WB and MEM, Rs Rt field in this instruction, ALU result and ALU zero%mdk
+%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={37}
+\begin{onlyenv}<+->%mdk
+\item{}
+%mdk-data-line={37}
+\mdline{37}MEM/WB: Control sinals for WB, ReadData from MEM, ALUresult, Selected Reg Destination%mdk
+%mdk
+\end{onlyenv}%mdk
+%mdk
 \end{itemize}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-1}%mdk%mdk
@@ -199,7 +208,10 @@
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
 %mdk-data-line={62}
-\item\mdline{62}Write the value of R16 into the target address in data memory%mdk
+\item\mdline{62}Write the value of R16 into the target address in DMEM%mdk
+
+%mdk-data-line={63}
+\item\mdline{63}Calculate the PCsrc signal for branch (useless)%mdk
 %mdk
 \end{itemize}%mdk
 %mdk
@@ -207,7 +219,7 @@
 %mdk
 \end{mdframe}\label{sec-hw-5-2-5-3}%mdk%mdk
 
-%mdk-data-line={70}
+%mdk-data-line={71}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 4}\label{heading-sec-hw-5-4}%mdk%mdk
@@ -218,26 +230,25 @@
 ~~{\mdcolor{navy}lw}~~\$2,~{\mdcolor{purple}16}(\$2)\\
 ~~{\mdcolor{navy}slt}~\$1,~\$2,~\$5\\
 ~~{\mdcolor{navy}beq}~\$1,~\$9,~{\mdcolor{teal}LOOP}%mdk
-\end{mdpre}\noindent\mdline{80}{\bfseries 4.16.4(b)}\mdline{80} Show  a  pipeline  execution  diagram  for  the  third  iteration  of  this  loop,  from  the  cycle  in  which  we  fetch  the  first  instruction  of  that  iteration  up  to  (but  not  including)  the  cycle  in  which  we  can  fetch  the  first  instruction  of  the  next  iteration.  Show  all  instructions  that  are  in  the  pipeline  during  these  cycles  (not  just  those  from  the  third  iteration).
+\end{mdpre}\noindent\mdline{81}{\bfseries 4.16.4(b)}\mdline{81} Show  a  pipeline  execution  diagram  for  the  third  iteration  of  this  loop,  from  the  cycle  in  which  we  fetch  the  first  instruction  of  that  iteration  up  to  (but  not  including)  the  cycle  in  which  we  can  fetch  the  first  instruction  of  the  next  iteration.  Show  all  instructions  that  are  in  the  pipeline  during  these  cycles  (not  just  those  from  the  third  iteration). Assume that  no  stalls  due  to  control  hazards,  that  there are no  delay slots,  and  that  the  pipeline  has  full  forwarding   support.
 %mdk
 \end{mdframe}\label{sec-hw-5-4}%mdk%mdk
 
-%mdk-data-line={82}
+%mdk-data-line={83}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 4}\label{heading-sec-hw-5-4}%mdk%mdk
 
-%mdk-data-line={84}
-\noindent\mdline{84}Solution:%mdk
+%mdk-data-line={85}
+\noindent\mdline{85}Solution:%mdk
 \begin{mdtabular}{2}{\dimeval{(\linewidth)/2}}{0pt}%mdk
 \begin{tabular}{ll}
 
-%mdk-data-line={87}
+%mdk-data-line={88}
 \begin{mdcolumn}%mdk
 \begin{mdblock}{width=\dimavailable}%mdk
 \begin{mdpre}%mdk
-\noindent~~~~~~~~~~~~~~{\mdcolor{navy}add}~\$1,~\$1,~\$2\\
-~~~~~~~~~~~~~~{\mdcolor{navy}lw}~~\$1,~{\mdcolor{purple}0}(\$1)\\
+\noindent~~~~~~~~~~~~~~{\mdcolor{navy}lw}~~\$1,~{\mdcolor{purple}0}(\$1)\\
 ~~~~~~~~~~~~~~{\mdcolor{navy}lw}~~\$1,~{\mdcolor{purple}0}(\$1)\\
 ~~~~~~~~~~~~~~{\mdcolor{navy}beq}~\$1,~\$0,~{\mdcolor{teal}LOOP}\\
 {\mdcolor{teal}LOOP}:~({\mdcolor{purple}3}rd)~~~{\mdcolor{navy}lw}~~\$1,~{\mdcolor{purple}0}(\$1)\\
@@ -255,103 +266,106 @@
 \begin{mdblock}{width=\dimavailable}%mdk
 \begin{mdpre}%mdk
 \noindent{\mdcolor{teal}WB}\\
-{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
 {\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
-{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
-{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
-~~~~{\mdcolor{teal}EX}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
-~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}\\
-~~~~~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}\\
-~~~~~~~~~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}\\
-~~~~~~~~~~~~~~~~~~~~{\mdcolor{teal}IF}%mdk
+{\mdcolor{teal}ID}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
+{\mdcolor{teal}IF}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
+~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
+~~~~~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}ID}~~{\mdcolor{teal}EX}~~{\mdcolor{teal}MEM}~{\mdcolor{teal}WB}\\
+~~~~~~~~~~~~~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}ID}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}EX}\\
+~~~~~~~~~~~~~~~~~~~~~~~~{\mdcolor{teal}IF}~~{\mdcolor{teal}NOP}~{\mdcolor{teal}ID}\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{\mdcolor{teal}IF}%mdk
 \end{mdpre}%mdk
 \end{mdblock}%mdk
 \end{mdcolumn}%mdk
 \\
 \end{tabular}\end{mdtabular}
+
+%mdk-data-line={116}
+\noindent\mdline{116}Notice that load-use hazard must be dealt with stall.%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-4}%mdk%mdk
 
-%mdk-data-line={117}
+%mdk-data-line={118}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 5 \& 5. 6}\label{heading-sec-hw-5-5-5-6}%mdk%mdk
 
-%mdk-data-line={119}
-\noindent\mdline{119}{\bfseries 4.16.5(b)}\mdline{119} How  often  (as  a  percentage  of  all  cycles)  do  we  have  a  cycle  in  which  all  five  pipeline  stages  are  doing  useful  work?%mdk
+%mdk-data-line={120}
+\noindent\mdline{120}{\bfseries 4.16.5(b)}\mdline{120} How  often  (as  a  percentage  of  all  cycles)  do  we  have  a  cycle  in  which  all  five  pipeline  stages  are  doing  useful  work?%mdk
 
-%mdk-data-line={121}
+%mdk-data-line={122}
 \mdhr{}%mdk
 
-%mdk-data-line={123}
+%mdk-data-line={124}
 \begin{onlyenv}<+->%mdk
-\noindent\mdline{123}\mdcode{{\mdcolor{navy}lw}}\mdline{123} fully takes use of all stages; \mdline{123}\mdcode{{\mdcolor{navy}add}}\mdline{123} does no useful work in MEM; \mdline{123}\mdcode{{\mdcolor{navy}beq}}\mdline{123} does no useful work in WB%mdk
+\noindent\mdline{124}\mdcode{{\mdcolor{navy}lw}}\mdline{124} fully takes use of all stages; \mdline{124}\mdcode{{\mdcolor{navy}add},~{\mdcolor{navy}slt}}\mdline{124} does no useful work in MEM; \mdline{124}\mdcode{{\mdcolor{navy}beq}}\mdline{124} does no useful work in WB%mdk
 \end{onlyenv}%mdk
 
-%mdk-data-line={126}
+%mdk-data-line={127}
 \begin{onlyenv}<+->%mdk
 \begin{mdbmargintb}{}{\dimwidth{0.03}}%mdk
-\mdline{126}Only the first three clocks out of five are fully used.%mdk
+\mdline{127}Only the two clocks out of eight are fully used.%mdk
 \end{mdbmargintb}%mdk
 \end{onlyenv}%mdk
 
-%mdk-data-line={129}
-\mdline{129}{\bfseries 4.16.6(b)}\mdline{129} At  the  start  of  the  cycle  in  which  we  fetch  the  first  instruction  of  the  third  iteration  of  this  loop,  what  is  stored  in  the  IF/ID  register?%mdk
+%mdk-data-line={130}
+\mdline{130}{\bfseries 4.16.6(b)}\mdline{130} At  the  start  of  the  cycle  in  which  we  fetch  the  first  instruction  of  the  third  iteration  of  this  loop,  what  is  stored  in  the  IF/ID  register?%mdk
 
-%mdk-data-line={131}
+%mdk-data-line={132}
 \mdhr{}%mdk
 
-%mdk-data-line={133}
+%mdk-data-line={134}
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
-\begin{mdfragmented}%mdk
-
-%mdk-data-line={133}
-\item\mdline{133}Fetched instruction from 2nd iteration \mdline{133}\mdcode{{\mdcolor{navy}beq}~\$1,~\$0,~{\mdcolor{teal}LOOP}}\mdline{133}%mdk
 
 %mdk-data-line={134}
-\item\mdline{134}PC+4%mdk
+\begin{onlyenv}<+->%mdk
+\item\mdline{134}Fetched instruction from 2nd iteration \mdline{134}\mdcode{{\mdcolor{navy}beq}~\$1,~\$0,~{\mdcolor{teal}LOOP}}\mdline{134}
 %mdk
-\end{mdfragmented}%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={135}
+\begin{onlyenv}<+->%mdk
+\item\mdline{135}PC+4
+%mdk
+\end{onlyenv}%mdk
+%mdk
 \end{itemize}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-5-5-6}%mdk%mdk
 
-%mdk-data-line={139}
+%mdk-data-line={140}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 7}\label{heading-sec-hw-5-7}%mdk%mdk
 
-%mdk-data-line={140}
-\noindent\mdline{140}4.17.3 Problems  in  this  exercise  assume  that  instructions  executed  by  a  pipelined  processor  are  broken  down  as  follows:%mdk
-
-%mdk-data-line={142}
-\begin{mdcenter}%mdk
+%mdk-data-line={141}
+\noindent\mdline{141}4.17.3 Problems  in  this  exercise  assume  that  instructions  executed  by  a  pipelined  processor  are  broken  down  as  follows:%mdk
 
 %mdk-data-line={143}
-\noindent\mdline{143}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/Screen-Shot-2018-10-27-at-9.15.17-PM}{}\mdline{143}%mdk
+\begin{mdcenter}%mdk
 %mdk
 \end{mdcenter}%mdk
 
-%mdk-data-line={149}
-\noindent\mdline{149}Assuming  there  are  no  stalls,  how  often  (percentage  of  all  cycles) do we use the data memory?%mdk
+%mdk-data-line={147}
+\noindent\mdline{147}Assuming  there  are  no  stalls,  how  often  (percentage  of  all  cycles) do we use the data memory?%mdk
 
-%mdk-data-line={151}
+%mdk-data-line={149}
 \mdhr{}%mdk
 
-%mdk-data-line={153}
+%mdk-data-line={151}
 \begin{onlyenv}<+->%mdk
 
-%mdk-data-line={154}
-\noindent\mdline{154}The percentage we use DMEM is just the sum of percentages of \mdline{154}\mdcode{{\mdcolor{navy}sw}}\mdline{154} and \mdline{154}\mdcode{{\mdcolor{navy}lw}}\mdline{154}.%mdk
+%mdk-data-line={152}
+\noindent\mdline{152}The percentage we use DMEM is just the sum of percentages of \mdline{152}\mdcode{{\mdcolor{navy}sw}}\mdline{152} and \mdline{152}\mdcode{{\mdcolor{navy}lw}}\mdline{152}.%mdk
 
-%mdk-data-line={156}
+%mdk-data-line={154}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep,label=\alph*.]%mdk
 
-%mdk-data-line={156}
-\item\mdline{156}25\%+5\%  = 30\%%mdk
+%mdk-data-line={154}
+\item\mdline{154}25\%+5\%  = 30\%%mdk
 
-%mdk-data-line={157}
-\item\mdline{157}20\%+10\% = 30\%%mdk
+%mdk-data-line={155}
+\item\mdline{155}20\%+10\% = 30\%%mdk
 %mdk
 \end{enumerate}%mdk
 %mdk
@@ -359,76 +373,88 @@
 %mdk
 \end{mdframe}\label{sec-hw-5-7}%mdk%mdk
 
-%mdk-data-line={162}
+%mdk-data-line={160}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 8}\label{heading-sec-hw-5-8}%mdk%mdk
 
-%mdk-data-line={164}
+%mdk-data-line={162}
 \begin{mdcenter}%mdk
 
-%mdk-data-line={165}
-\noindent\mdline{165}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/Screen-Shot-2018-10-27-at-9.20.45-PM}{}\mdline{165}%mdk
+%mdk-data-line={163}
+\noindent\mdline{163}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/Screen-Shot-2018-10-27-at-9.20.45-PM}{}\mdline{163}%mdk
 %mdk
 \end{mdcenter}%mdk
 
+%mdk-data-line={168}
+\noindent\mdline{168}{\bfseries 4.18.1 (a)}\mdline{168}%mdk
+
 %mdk-data-line={170}
-\noindent\mdline{170}{\bfseries 4.18.1 (b)}\mdline{170}%mdk
-
-%mdk-data-line={172}
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
-\begin{mdfragmented}%mdk
+
+%mdk-data-line={170}
+\begin{onlyenv}<+->%mdk
+\item\mdline{170}Ex: ALUop: 00; RegDst: 0; ALUSrc: 1
+%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={171}
+\begin{onlyenv}<+->%mdk
+\item\mdline{171}MEM: Branch: 0; MEMWrite: 0; MEMRead: 1
+%mdk
+\end{onlyenv}%mdk
 
 %mdk-data-line={172}
-\item\mdline{172}Ex: ALUop: 00; RegDst: 0; ALUSrc: 1%mdk
-
-%mdk-data-line={173}
-\item\mdline{173}MEM: Branch: 0; MEMWrite: 0; MEMRead: 1%mdk
-
-%mdk-data-line={174}
-\item\mdline{174}MemtoReg: 0; RegWrite: 1%mdk
+\begin{onlyenv}<+->%mdk
+\item\mdline{172}MemtoReg: 0; RegWrite: 1
 %mdk
-\end{mdfragmented}%mdk
+\end{onlyenv}%mdk
+%mdk
 \end{itemize}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-8}%mdk%mdk
 
-%mdk-data-line={177}
+%mdk-data-line={174}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 9}\label{heading-sec-hw-5-9}%mdk%mdk
 
-%mdk-data-line={179}
-\noindent\mdline{179}{\bfseries 4.18.3 (b)}\mdline{179} What  is  the  value  of  the  PCSrc  signal  for  this  instruction?  This  signal  is generated  early  in  the  MEM  stage  (only  a  single  AND  gate).  What  would  be  a  reason  in  favor  of  doing  this  in  the  EX  stage?  What  is  the  reason  against  doing  it  in  the  EX  stage?%mdk
+%mdk-data-line={176}
+\noindent\mdline{176}{\bfseries 4.18.3 (b)}\mdline{176} What  is  the  value  of  the  PCSrc  signal  for  this  instruction?  This  signal  is generated  early  in  the  MEM  stage  (only  a  single  AND  gate).  What  would  be  a  reason  in  favor  of  doing  this  in  the  EX  stage?  What  is  the  reason  against  doing  it  in  the  EX  stage?%mdk
 
-%mdk-data-line={181}
+%mdk-data-line={178}
 \mdhr{}%mdk
 
-%mdk-data-line={183}
-\noindent\mdline{183}PCsrc = 0.%mdk
+%mdk-data-line={179}
+\begin{onlyenv}<+->%mdk
 
-%mdk-data-line={185}
+%mdk-data-line={180}
+\noindent\mdline{180}PCsrc = 0.%mdk
+
+%mdk-data-line={182}
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
-%mdk-data-line={185}
-\item\mdline{185}Reason for in EX: one clock cycle earlier to select the correct result of pc (useful for branch instructions)%mdk
+%mdk-data-line={182}
+\item\mdline{182}Reason for in EX: one clock cycle earlier to select the correct result of pc (useful for branch instructions)%mdk
 
-%mdk-data-line={186}
-\item\mdline{186}Reason for in MEM: PCsrc is dependent on ALUzero and need further AND calculation. May exceed the cycle length.%mdk
+%mdk-data-line={183}
+\item\mdline{183}Reason for in MEM: PCsrc is dependent on ALUzero and need further AND calculation. May exceed the cycle length.%mdk
 %mdk
 \end{itemize}%mdk
 %mdk
+\end{onlyenv}%mdk
+%mdk
 \end{mdframe}\label{sec-hw-5-9}%mdk%mdk
 
-%mdk-data-line={191}
+%mdk-data-line={189}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 10}\label{heading-sec-hw-5-10}%mdk%mdk
 
-%mdk-data-line={193}
-\noindent\mdline{193}Problems in this exercise refer to the following instruction sequences (b)%mdk
+%mdk-data-line={191}
+\noindent\mdline{191}Problems in this exercise refer to the following instruction sequences (b)%mdk
 
-%mdk-data-line={195}
+%mdk-data-line={193}
 \begin{mdblock}{width=\dimwidth{0.50}}%mdk
 \begin{mdpre}%mdk
 \noindent{\mdcolor{teal}I1}:~~{\mdcolor{navy}add}~\$1,~\$2,~\$1\\
@@ -438,42 +464,49 @@
 \end{mdpre}%mdk
 \end{mdblock}%mdk
 
-%mdk-data-line={204}
-\noindent\mdline{204}{\bfseries 4.20.1(a)}\mdline{204}  Find  all  data  dependences  in  this  instruction  sequence.%mdk
+%mdk-data-line={202}
+\noindent\mdline{202}{\bfseries 4.20.1(a)}\mdline{202}  Find  all  data  dependences  in  this  instruction  sequence.%mdk
 
-%mdk-data-line={206}
+%mdk-data-line={204}
 \mdhr{}%mdk
 
-%mdk-data-line={208}
+%mdk-data-line={206}
 \begin{itemize}%mdk
-\begin{mdfragmented}%mdk
 
-%mdk-data-line={208}
+%mdk-data-line={206}
+\begin{onlyenv}<+->%mdk
 \item{}
-%mdk-data-line={208}
-\mdline{208}ReadAfterWrite: I1\mdline{208} \mdline{208}- I2 I3 I4(\mdline{208}\$\mdline{208}1), I2\mdline{208} \mdline{208}- I4(\mdline{208}\$\mdline{208}2), I3\mdline{208} \mdline{208}- I4(\mdline{208}\$\mdline{208}1)%mdk%mdk
-
-%mdk-data-line={210}
-\item{}
-%mdk-data-line={210}
-\mdline{210}WriteAfterRead: I1\mdline{210} \mdline{210}- I2(\mdline{210}\$\mdline{210}2), I1\mdline{210} \mdline{210}- I3(\mdline{210}\$\mdline{210}1)%mdk%mdk
-
-%mdk-data-line={212}
-\item{}
-%mdk-data-line={212}
-\mdline{212}WriteAfterWrite: I1\mdline{212} \mdline{212}- I3(\mdline{212}\$\mdline{212}1)%mdk%mdk
+%mdk-data-line={206}
+\mdline{206}ReadAfterWrite: I1\mdline{206} \mdline{206}- I2 I3 I4(\mdline{206}\$\mdline{206}1), I2\mdline{206} \mdline{206}- I4(\mdline{206}\$\mdline{206}2), I3\mdline{206} \mdline{206}- I4(\mdline{206}\$\mdline{206}1)%mdk
 %mdk
-\end{mdfragmented}%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={208}
+\begin{onlyenv}<+->%mdk
+\item{}
+%mdk-data-line={208}
+\mdline{208}WriteAfterRead: I1\mdline{208} \mdline{208}- I2(\mdline{208}\$\mdline{208}2), I1\mdline{208} \mdline{208}- I3(\mdline{208}\$\mdline{208}1)%mdk
+%mdk
+\end{onlyenv}%mdk
+
+%mdk-data-line={210}
+\begin{onlyenv}<+->%mdk
+\item{}
+%mdk-data-line={210}
+\mdline{210}WriteAfterWrite: I1\mdline{210} \mdline{210}- I3(\mdline{210}\$\mdline{210}1)%mdk
+%mdk
+\end{onlyenv}%mdk
+%mdk
 \end{itemize}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-10}%mdk%mdk
 
-%mdk-data-line={215}
+%mdk-data-line={212}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 11}\label{heading-sec-hw-5-11}%mdk%mdk
 
-%mdk-data-line={217}
+%mdk-data-line={214}
 \begin{mdblock}{width=\dimwidth{0.50}}%mdk
 \begin{mdpre}%mdk
 \noindent~~{\mdcolor{navy}add}~\$1,~\$2,~\$1\\
@@ -483,47 +516,52 @@
 \end{mdpre}%mdk
 \end{mdblock}%mdk
 
-%mdk-data-line={226}
-\noindent\mdline{226}{\bfseries 4.20.3(a)}\mdline{226} To  reduce  clock  cycle  time,  we  are  considering  a  split  of the MEM  stage  into  two  stages. Find  all  hazards  in  this  instruction  sequence  for  this  6-stage  pipeline with and then without forwarding.%mdk
+%mdk-data-line={223}
+\noindent\mdline{223}{\bfseries 4.20.3(a)}\mdline{223} To  reduce  clock  cycle  time,  we  are  considering  a  split  of the MEM  stage  into  two  stages. Find  all  hazards  in  this  instruction  sequence  for  this  6-stage  pipeline with and then without forwarding.%mdk
 
-%mdk-data-line={228}
+%mdk-data-line={225}
 \mdhr{}%mdk
 
-%mdk-data-line={230}
-\noindent\mdline{230}The only difference is that originally load-use harzard only affects the very next instruction with RAW dependency while in this 6-stage version, it will affect next 2 intructions.%mdk
+%mdk-data-line={226}
+\begin{onlyenv}<+->%mdk
 
-%mdk-data-line={232}
+%mdk-data-line={227}
+\noindent\mdline{227}The only difference is that originally load-use harzard only affects the very next instruction with RAW dependency while in this 6-stage version, it will affect next 2 intructions.%mdk
+
+%mdk-data-line={229}
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
-%mdk-data-line={232}
-\item\mdline{232}With Forwarding: I2\mdline{232} \mdline{232}- I4(\mdline{232}\$\mdline{232}2) (not exists in 5-stage), I3\mdline{232} \mdline{232}- I4(\mdline{232}\$\mdline{232}2)%mdk
+%mdk-data-line={229}
+\item\mdline{229}With Forwarding: I2\mdline{229} \mdline{229}- I4(\mdline{229}\$\mdline{229}2) (not in 5-stage), I3\mdline{229} \mdline{229}- I4(\mdline{229}\$\mdline{229}2)%mdk
 
-%mdk-data-line={233}
-\item\mdline{233}Without Forwarding: I1\mdline{233} \mdline{233}- I2 I3(\mdline{233}\$\mdline{233}1), I2\mdline{233} \mdline{233}- I4(\mdline{233}\$\mdline{233}2), I3\mdline{233} \mdline{233}- I4(\mdline{233}\$\mdline{233}1)%mdk
+%mdk-data-line={230}
+\item\mdline{230}Without Forwarding: I1\mdline{230} \mdline{230}- I2 I3(\mdline{230}\$\mdline{230}1), I2\mdline{230} \mdline{230}- I4(\mdline{230}\$\mdline{230}2), I3\mdline{230} \mdline{230}- I4(\mdline{230}\$\mdline{230}1)%mdk
 %mdk
 \end{itemize}%mdk
 %mdk
+\end{onlyenv}%mdk
+%mdk
 \end{mdframe}\label{sec-hw-5-11}%mdk%mdk
 
-%mdk-data-line={236}
+%mdk-data-line={233}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 12}\label{heading-sec-hw-5-12}%mdk%mdk
 
-%mdk-data-line={238}
-\noindent\mdline{238} We assume that all  values  in  data  memory  are  zeroes  and  that  registers have  the  following  initial  values:%mdk
+%mdk-data-line={235}
+\noindent\mdline{235} We assume that all  values  in  data  memory  are  zeroes  and  that  registers have  the  following  initial  values:%mdk
 \begin{mdtabular}{2}{\dimeval{(\linewidth-\dimwidth{0.75})/1}}{0pt}%mdk
 \begin{tabular}{ll}
 
-%mdk-data-line={241}
+%mdk-data-line={238}
 \begin{mdcolumn}%mdk
 \begin{mdblock}{vertical-align=bottom,width=\dimwidth{0.75}}%mdk
-%mdk-data-line={242}
-\noindent\mdline{242}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/5_12}{}\mdline{242}%mdk%mdk
+%mdk-data-line={239}
+\noindent\mdline{239}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/5_12}{}\mdline{239}%mdk%mdk
 \end{mdblock}%mdk
 \end{mdcolumn}%mdk
 &
-%mdk-data-line={245}
+%mdk-data-line={242}
 \begin{mdcolumn}%mdk
 \begin{mdblock}{vertical-align=top,width=\dimavailable}%mdk
 \begin{mdpre}%mdk
@@ -537,38 +575,43 @@
 \\
 \end{tabular}\end{mdtabular}
 
-%mdk-data-line={255}
-\noindent\mdline{255}{\bfseries 4.20.5(a)}\mdline{255}  If  we  assume  forwarding  will  be  implemented  when  we  design  the  hazard  detection  unit,  but  then  we  forget  to  actually  implement  forwarding what  are  the  final  register  values  after  this  instruction  sequence?%mdk
+%mdk-data-line={252}
+\noindent\mdline{252}{\bfseries 4.20.5(a)}\mdline{252}  If  we  assume  forwarding  will  be  implemented  when  we  design  the  hazard  detection  unit,  but  then  we  forget  to  actually  implement  forwarding what  are  the  final  register  values  after  this  instruction  sequence?%mdk
 
-%mdk-data-line={257}
+%mdk-data-line={254}
 \mdhr{}%mdk
 
-%mdk-data-line={259}
-\noindent\mdline{259}Without forwarding, the written reg can only be updated after two cycles of the execution.%mdk
+%mdk-data-line={256}
+\begin{onlyenv}<+->%mdk
 
-%mdk-data-line={261}
+%mdk-data-line={257}
+\noindent\mdline{257}Without forwarding, the written reg can only be updated after two cycles of the execution. (stall active for load-use)%mdk
+
+%mdk-data-line={259}
 \begin{mdcenter}%mdk
-\mdline{261}\$\mdline{261}1 = 0; \mdline{261}\$\mdline{261}2 = 0; \mdline{261}\$\mdline{261}3 = 30\mdline{261}$\lor$\mdline{261}31 = 31\mdline{261}\mdsub{dec}%mdk
+\mdline{259}\$\mdline{259}1 = 0; \mdline{259}\$\mdline{259}2 = 0; \mdline{259}\$\mdline{259}3 = 30\mdline{259}$\lor$\mdline{259}0 = 30\mdline{259}\mdsub{dec}%mdk
 \end{mdcenter}%mdk
+%mdk
+\end{onlyenv}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-12}%mdk%mdk
 
-%mdk-data-line={264}
+%mdk-data-line={263}
 \begin{mdframe}%mdk
 
 \frametitle{HW 5. 13}\label{heading-sec-hw-5-13}%mdk%mdk
 \begin{mdtabular}{2}{\dimeval{(\linewidth-\dimwidth{0.75})/1}}{0pt}%mdk
 \begin{tabular}{ll}
 
-%mdk-data-line={267}
+%mdk-data-line={266}
 \begin{mdcolumn}%mdk
 \begin{mdblock}{vertical-align=bottom,width=\dimwidth{0.75}}%mdk
-%mdk-data-line={268}
-\noindent\mdline{268}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/5_12}{}\mdline{268}%mdk%mdk
+%mdk-data-line={267}
+\noindent\mdline{267}\includegraphics[keepaspectratio=true,width=\dimmin{}{\dimwidth{1.00}}]{images/5_12}{}\mdline{267}%mdk%mdk
 \end{mdblock}%mdk
 \end{mdcolumn}%mdk
 &
-%mdk-data-line={271}
+%mdk-data-line={270}
 \begin{mdcolumn}%mdk
 \begin{mdblock}{vertical-align=top,width=\dimavailable}%mdk
 \begin{mdpre}%mdk
@@ -582,13 +625,14 @@
 \\
 \end{tabular}\end{mdtabular}
 
-%mdk-data-line={281}
-\noindent\mdline{281}{\bfseries 4.20.6(a)}\mdline{281} Add  NOPs  sequence  to  ensure  correct  execution  in  spite  of  missing  support  for  forwarding.%mdk
+%mdk-data-line={280}
+\noindent\mdline{280}{\bfseries 4.20.6(a)}\mdline{280} Add  NOPs  sequence  to  ensure  correct  execution  in  spite  of  missing  support  for  forwarding.%mdk
 
-%mdk-data-line={283}
+%mdk-data-line={282}
 \mdhr{}%mdk
 
-%mdk-data-line={284}
+%mdk-data-line={283}
+\begin{onlyenv}<+->%mdk
 \begin{mdcenter}%mdk
 \begin{mdpre}%mdk
 \begin{mdblock}{width=\dimwidth{0.50}}%mdk
@@ -603,22 +647,61 @@
 \end{mdblock}%mdk
 \end{mdpre}%mdk
 \end{mdcenter}%mdk
+\end{onlyenv}%mdk
 %mdk
 \end{mdframe}\label{sec-hw-5-13}%mdk%mdk
 
-%mdk-data-line={299}
+%mdk-data-line={298}
 \begin{mdframe}%mdk
 
-\frametitle{Review}\label{heading-sec-review}%mdk%mdk
-%mdk
-\end{mdframe}\label{sec-review}%mdk%mdk
+\frametitle{Tips}\label{heading-sec-tips}%mdk%mdk
 
-%mdk-data-line={301}
+%mdk-data-line={300}
+\noindent\mdline{300}Things you must know before entering E2-401/E2-301.%mdk
+
+%mdk-data-line={302}
+\begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
+
+%mdk-data-line={302}
+\item\mdline{302}Time: 14:00\mdline{302} \mdline{302}- 15:40, Oct 29%mdk
+
+%mdk-data-line={303}
+\item\mdline{303}What is CPI, CPU Time etc.%mdk
+
+%mdk-data-line={304}
+\item\mdline{304}Big Endian and Small Endian%mdk
+
+%mdk-data-line={305}
+\item\mdline{305}How to work like assembler and compiler%mdk
+
+%mdk-data-line={306}
+\item\mdline{306}Design logic behind single-cycle and pipeline structure%mdk
+
+%mdk-data-line={307}
+\item\mdline{307}How to determine the critical path and cycle time%mdk
+
+%mdk-data-line={308}
+\item\mdline{308}Control signals for every instruction%mdk
+
+%mdk-data-line={309}
+\item\mdline{309}What is each stage working on for different instructions%mdk
+
+%mdk-data-line={310}
+\item\mdline{310}How to support \mdline{310}\mdcode{{\mdcolor{navy}bne}}\mdline{310}, \mdline{310}\mdcode{{\mdcolor{navy}jr}}\mdline{310} and \mdline{310}\mdcode{{\mdcolor{navy}jal}}\mdline{310} for at least single-cycle%mdk
+
+%mdk-data-line={311}
+\item\mdline{311}Never stuck on one single problem%mdk
+%mdk
+\end{itemize}%mdk
+%mdk
+\end{mdframe}\label{sec-tips}%mdk%mdk
+
+%mdk-data-line={313}
 \begin{mdframe}%mdk
 
-\frametitle{A few more exercise}\label{heading-sec-a-few-more-exercise}%mdk%mdk
+\frametitle{Good Luck !}\label{heading-sec-good-luck-}%mdk%mdk
 %mdk
-\end{mdframe}\label{sec-a-few-more-exercise}%mdk%mdk%mdk%mdk%mdk
+\end{mdframe}\label{sec-good-luck-}%mdk%mdk%mdk%mdk%mdk
 
 
 \end{document}

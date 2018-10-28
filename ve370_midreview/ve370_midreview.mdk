@@ -141,10 +141,8 @@ Only the two clocks out of eight are fully used.
 4.17.3 Problems  in  this  exercise  assume  that  instructions  executed  by  a  pipelined  processor  are  broken  down  as  follows:
 
 ~ Begin Center
-![Screen Shot 2018-10-27 at 9.15.17 PM]
-
-[Screen Shot 2018-10-27 at 9.15.17 PM]: images/Screen-Shot-2018-10-27-at-9.15.17-PM.png "Screen Shot 2018-10-27 at 9.15.17 PM" { width:auto; max-width:100% }
-
+![5_7]
+[5_7]: images/5_7.png "5_7" { width:auto; max-width:100% }
 ~ End Center
 
 Assuming  there  are  no  stalls,  how  often  (percentage  of  all  cycles) do we use the data memory? 
@@ -163,9 +161,9 @@ b. 20%+10% = 30%
 ## HW 5. 8
 
 ~ Begin Center
-![Screen Shot 2018-10-27 at 9.20.45 PM]
+![5_8]
+[5_8]: images/5_8.png "5_8" { width:auto; max-width:100% }
 
-[Screen Shot 2018-10-27 at 9.20.45 PM]: images/Screen-Shot-2018-10-27-at-9.20.45-PM.png "Screen Shot 2018-10-27 at 9.20.45 PM" { width:auto; max-width:100% }
 ~ End Center
 
 [4.18.1 (a)]{font-weight:bold}

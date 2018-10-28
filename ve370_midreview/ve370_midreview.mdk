@@ -27,14 +27,13 @@ Title Note: &date;
 
 ------
 
-* IF/ID: PC+4, instruction
+* {.fragment}IF/ID: PC+4, instruction
 
-* ID/EX: PC+4, ReadData1(\$6), ReadData2(\$16), offset: -100(32b), Rs Rt field in this instruction, all control signals
+* {.fragment}ID/EX: PC+4, ReadData1(\$6), ReadData2(\$16), offset: -100(32b), Rs Rt field in this instruction, all control signals
 
-* EX/MEM: PC+4+offset, ReadData2(\$16), control signals for WB and MEM, Rs Rt field in this instruction, ALU result and ALU zero
+* {.fragment}EX/MEM: PC+4+offset, ReadData2(\$16), control signals for WB and MEM, Rs Rt field in this instruction, ALU result and ALU zero
 
-* MEM/WB: Control sinals for WB, ReadData from MEM, ALUresult, Selected Reg Destination
-{.fragmented}
+* {.fragment}MEM/WB: Control sinals for WB, ReadData from MEM, ALUresult, Selected Reg Destination
 
 ## HW 5. 2 & 5. 3
 
@@ -105,7 +104,7 @@ MEM WB
 EX  MEM WB
 ID  EX  MEM WB
 IF  ID  EX  MEM WB
-    EX  ID  EX  MEM WB
+    IF  ID  EX  MEM WB
         IF  ID  EX  MEM
             IF  ID  EX
                 IF  ID
@@ -130,9 +129,9 @@ Only the first three clocks out of five are fully used.
 
 ---
 
-* Fetched instruction from 2nd iteration `beq $1, $0, LOOP`{language:mips}
-* PC+4
-{.fragmented}
+* {.fragment}Fetched instruction from 2nd iteration `beq $1, $0, LOOP`{language:mips}
+* {.fragment}PC+4
+
 
 ~ End Vertical
 
@@ -169,21 +168,21 @@ b. 20%+10% = 30%
 
 [4.18.1 (b)]{font-weight:bold}
 
-* Ex: ALUop: 00; RegDst: 0; ALUSrc: 1
-* MEM: Branch: 0; MEMWrite: 0; MEMRead: 1
-* MemtoReg: 0; RegWrite: 1
-{.fragmented}
+* {.fragment}Ex: ALUop: 00; RegDst: 0; ALUSrc: 1
+* {.fragment}MEM: Branch: 0; MEMWrite: 0; MEMRead: 1
+* {.fragment}MemtoReg: 0; RegWrite: 1
 
 ## HW 5. 9
 
 [4.18.3 (b)]{font-weight: bold} What  is  the  value  of  the  PCSrc  signal  for  this  instruction?  This  signal  is generated  early  in  the  MEM  stage  (only  a  single  AND  gate).  What  would  be  a  reason  in  favor  of  doing  this  in  the  EX  stage?  What  is  the  reason  against  doing  it  in  the  EX  stage?
 
 -----
-
+~ {.fragment}
 PCsrc = 0.
 
 * Reason for in EX: one clock cycle earlier to select the correct result of pc (useful for branch instructions)
 * Reason for in MEM: PCsrc is dependent on ALUzero and need further AND calculation. May exceed the cycle length.
+~
 
 ~ End Vertical
 
@@ -205,12 +204,11 @@ I4:  or  $3, $1, $2
 
 ---
 
-* ReadAfterWrite: I1 - I2 I3 I4(\$1), I2 - I4(\$2), I3 - I4(\$1)
+* {.fragment}ReadAfterWrite: I1 - I2 I3 I4(\$1), I2 - I4(\$2), I3 - I4(\$1)
 
-* WriteAfterRead: I1 - I2(\$2), I1 - I3(\$1)
+* {.fragment}WriteAfterRead: I1 - I2(\$2), I1 - I3(\$1)
 
-* WriteAfterWrite: I1 - I3(\$1)
-{.fragmented}
+* {.fragment}WriteAfterWrite: I1 - I3(\$1)
 
 ## HW 5. 11
 
@@ -226,12 +224,12 @@ I4:  or  $3, $1, $2
 [4.20.3(a)]{font-weight: bold} To  reduce  clock  cycle  time,  we  are  considering  a  split  of the MEM  stage  into  two  stages. Find  all  hazards  in  this  instruction  sequence  for  this  6-stage  pipeline with and then without forwarding.
 
 ---
-
+~ {.fragment}
 The only difference is that originally load-use harzard only affects the very next instruction with RAW dependency while in this 6-stage version, it will affect next 2 intructions.
 
-* With Forwarding: I2 - I4(\$2) (not exists in 5-stage), I3 - I4(\$2)
+* With Forwarding: I2 - I4(\$2) (not in 5-stage), I3 - I4(\$2)
 * Without Forwarding: I1 - I2 I3(\$1), I2 - I4(\$2), I3 - I4(\$1)
-
+~
 
 ## HW 5. 12
 
@@ -256,10 +254,12 @@ The only difference is that originally load-use harzard only affects the very ne
 
 ---
 
+~ {.fragment}
 Without forwarding, the written reg can only be updated after two cycles of the execution.
 
 \$1 = 0; \$2 = 0; \$3 = 30$\lor$31 = 31~dec~
 {text-align: center}
+~ 
 
 ## HW 5. 13
 
@@ -281,7 +281,7 @@ Without forwarding, the written reg can only be updated after two cycles of the 
 [4.20.6(a)]{font-weight:bold} Add  NOPs  sequence  to  ensure  correct  execution  in  spite  of  missing  support  for  forwarding.
 
 ---
-~ Begin Center 
+~ Begin Center {.fragment}
 ``` mips {width : 50%}
   add $1, $2, $1
   NOP
@@ -294,11 +294,24 @@ Without forwarding, the written reg can only be updated after two cycles of the 
 ```
 ~ End Center
 
-
 ~ End Vertical
 
+# Tips
 
+Things you must know before entering E2-401/E2-301.
 
+* Time: 14:00 - 15:40, Oct 29
+* What is CPI, CPU Time etc.
+* Big Endian and Small Endian
+* How to work like assembler and compiler
+* Design logic behind single-cycle and pipeline structure
+* How to determine the critical path and cycle time
+* Control signals for every instruction
+* What is each stage working on for different instructions
+* How to support `bne`{language: mips}, `jr`{language: mips} and `jal`{language: mips} for at least single-cycle
+* Never stuck on one single problem
+
+# Good Luck !
 [slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
 [slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}
 [slide-pdf]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.pdf

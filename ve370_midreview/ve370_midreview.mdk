@@ -5,7 +5,7 @@ Affiliation   : UMJI-SJTU
 Reveal Theme  : sky
 Beamer Theme  : singapore
 Colorizer   : mips
-Reveal Url: https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.js
+Title Note: &date;
 
 [TITLE]
 
@@ -15,214 +15,289 @@ Reveal Url: https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.js
 
 # HW5 Sample Solution
 
-## HW5. 1
+~Begin Vertical
+
+## HW 5. 1
 
 ``` mips
   sw R16,–100(R6)
 ```
-As  this  instruction  executes,  what  is  kept  in  each  register  located  between  two  pipeline  stages? 
 
-<span class="fragment fade-in">Solution</span>
+[4.16.1 (a)]{font-weight: bold} As  this  instruction  executes,  what  is  kept  in  each  register  located  between  two  pipeline  stages? 
 
-Solution: {.fragment .fade-in}
+------
 
-# Madoko Presentation
+* IF/ID: PC+4, instruction
 
-Using [Madoko] it is easy to create beautiful presentations.
+* ID/EX: PC+4, ReadData1(\$6), ReadData2(\$16), offset: -100(32b), Rs Rt field in this instruction, all control signals
 
-* [Html][slide]:
-  Uses the `Reveal.js` library by [Hakim El Hattab](http://hakim.se).\
-  This slide demo in Madoko is an adaption of his online demo.
-* [Pdf][slide-pdf]:
-  Uses the `Beamer` package for LaTeX
-* [Source][slide-mdk]:
-  Click to see the source of this presentation.
+* EX/MEM: PC+4+offset, ReadData2(\$16), control signals for WB and MEM, Rs Rt field in this instruction, ALU result and ALU zero
+
+* MEM/WB: Control sinals for WB, ReadData from MEM, ALUresult, Selected Reg Destination
+{.fragmented}
+
+## HW 5. 2 & 5. 3
+
+[4.16.2 (a)]{font-weight: bold} Which  registers  need  to  be  read,  and  which  registers  are  actually read?
 
 
-[madoko]: http://madoko.codeplex.com
+-------
 
-## Reveal.js
+need to be read: R16, R6; actually read: R16, R6
+{margin-bottom:3%; .fragment}
 
-`reveal.js` is a framework for easily creating beautiful presentations using
-HTML. You'll need a browser with support for CSS 3D transforms to see it in
-its full glory. 
+[4.16.3 (a)]{font-weight: bold} What  does  this  instruction  do  in  the  EX  and  MEM  stages?
 
-And any Madoko features just work. Here is some math:
 
-~ Begin Framed { padding:1ex; margin-top:1ex }
-A famous equation is $e = mc^2$, but this one is 
-famous too:
+-----
+~ {.fragment}
+EX: 
 
-~ Equation  {#eq-gaussian}
-\int_{-\infty}^\infty e^{-a x^2} d x = \sqrt{\frac{\pi}{a}} 
+* Add the offset with the base address from R6
+* Add PC+4 with the lower 16bits of instruction (useless)
+* One reg destination is selected by mux (useless)
+
+MEM:
+
+* Write the value of R16 into the target address in data memory
 ~
-~ End Framed
 
-~~ Notes
-Oh hey, these are some notes. They'll be hidden in your presentation, but you
-can see them if you open the speaker notes window (hit 's' on your keyboard).
-~~
 
-## Code
+~ End Vertical
 
-Here is code, highlighted by Madoko 
+~ Begin Vertical
 
-``` javascript
-function sqr( x ) {
-  var \(&pi;\) = 3.141593;
-  return x*x;  /* the square */
-}
+## HW 5. 4
+
+``` mips
+LOOP:
+  add $1, $2, $1
+  lw  $2, 0($1)
+  lw  $2, 16($2)
+  slt $1, $2, $5
+  beq $1, $9, LOOP
 ```
-We used `\(` and `\)` to escape into markdown to write &pi;.
+[4.16.4(b)]{font-weight:bold} Show  a  pipeline  execution  diagram  for  the  third  iteration  of  this  loop,  from  the  cycle  in  which  we  fetch  the  first  instruction  of  that  iteration  up  to  (but  not  including)  the  cycle  in  which  we  can  fetch  the  first  instruction  of  the  next  iteration.  Show  all  instructions  that  are  in  the  pipeline  during  these  cycles  (not  just  those  from  the  third  iteration).
 
-<!-- Example of nested vertical slides -->
-~ Begin Vertical { data-background:Gainsboro }
+## HW 5. 4
 
-## Vertical Slides {#vertical}
-Slides can be nested inside of other slides,
-try pressing [down].
-
-[![arrowdown]][down]
-
-
-[down]: # { .navigate-down }
-[arrowdown]: images/arrow.png "Down arrow" { width:178px; height:238px }
-
-## Basement Level 1
-Press down or up to navigate.
-
-## Basement Level 2
-
-Use `columns` to put blocks next to each other:
+Solution:
 
 ~ Begin Columns
-~ Column { width:50% }
-A monarch butterfly (shown to the right)
-spends the winter in Mexico.
+~ Column {weight:50%}
+``` mips
+              add $1, $1, $2
+              lw  $1, 0($1)
+              lw  $1, 0($1)
+              beq $1, $0, LOOP
+LOOP: (3rd)   lw  $1, 0($1)
+              add $1, $1, $2
+              lw  $1, 0($1)
+              lw  $1, 0($1)
+              beq $1, $0, LOOP
+LOOP: (4th)   lw  $1, 0($1)
+```
 ~
 ~ Column
-![butterfly]
+``` mips
+WB
+MEM WB
+EX  MEM WB
+ID  EX  MEM WB
+IF  ID  EX  MEM WB
+    EX  ID  EX  MEM WB
+        IF  ID  EX  MEM
+            IF  ID  EX
+                IF  ID
+                    IF
+```
 ~
 ~ End Columns
 
-[butterfly]: images/butterfly.png "A Monarch butterfly" { width:280px; vertical-align:middle }
+## HW 5. 5 & 5. 6
+
+[4.16.5(b)]{font-weight:bold} How  often  (as  a  percentage  of  all  cycles)  do  we  have  a  cycle  in  which  all  five  pipeline  stages  are  doing  useful  work?
+
+---
+
+`lw`{language:mips} fully takes use of all stages; `add`{language:mips} does no useful work in MEM; `beq`{language:mips} does no useful work in WB
+{.fragment}
+
+Only the first three clocks out of five are fully used.
+{margin-bottom:3%; .fragment}
+
+[4.16.6(b)]{font-weight:bold} At  the  start  of  the  cycle  in  which  we  fetch  the  first  instruction  of  the  third  iteration  of  this  loop,  what  is  stored  in  the  IF/ID  register?
+
+---
+
+* Fetched instruction from 2nd iteration `beq $1, $0, LOOP`{language:mips}
+* PC+4
+{.fragmented}
+
+~ End Vertical
+
+## HW 5. 7
+4.17.3 Problems  in  this  exercise  assume  that  instructions  executed  by  a  pipelined  processor  are  broken  down  as  follows:
+
+~ Begin Center
+![Screen Shot 2018-10-27 at 9.15.17 PM]
+
+[Screen Shot 2018-10-27 at 9.15.17 PM]: images/Screen-Shot-2018-10-27-at-9.15.17-PM.png "Screen Shot 2018-10-27 at 9.15.17 PM" { width:auto; max-width:100% }
+
+~ End Center
+
+Assuming  there  are  no  stalls,  how  often  (percentage  of  all  cycles) do we use the data memory? 
+
+---
+
+~ {.fragment}
+The percentage we use DMEM is just the sum of percentages of `sw`{language:mips} and `lw`{language:mips}.
+
+a. 25%+5%  = 30%
+b. 20%+10% = 30%
+~
+
+~ Begin Vertical
+
+## HW 5. 8
+
+~ Begin Center
+![Screen Shot 2018-10-27 at 9.20.45 PM]
+
+[Screen Shot 2018-10-27 at 9.20.45 PM]: images/Screen-Shot-2018-10-27-at-9.20.45-PM.png "Screen Shot 2018-10-27 at 9.20.45 PM" { width:auto; max-width:100% }
+~ End Center
+
+[4.18.1 (b)]{font-weight:bold}
+
+* Ex: ALUop: 00; RegDst: 0; ALUSrc: 1
+* MEM: Branch: 0; MEMWrite: 0; MEMRead: 1
+* MemtoReg: 0; RegWrite: 1
+{.fragmented}
+
+## HW 5. 9
+
+[4.18.3 (b)]{font-weight: bold} What  is  the  value  of  the  PCSrc  signal  for  this  instruction?  This  signal  is generated  early  in  the  MEM  stage  (only  a  single  AND  gate).  What  would  be  a  reason  in  favor  of  doing  this  in  the  EX  stage?  What  is  the  reason  against  doing  it  in  the  EX  stage?
+
+-----
+
+PCsrc = 0.
+
+* Reason for in EX: one clock cycle earlier to select the correct result of pc (useful for branch instructions)
+* Reason for in MEM: PCsrc is dependent on ALUzero and need further AND calculation. May exceed the cycle length.
+
+~ End Vertical
+
+~ Begin Vertical
+## HW 5. 10
+
+Problems in this exercise refer to the following instruction sequences (b)
+
+~ {width: 50%}
+``` mips
+I1:  add $1, $2, $1
+I2:  lw  $2, 0($1)
+I3:  lw  $1, 4($1)
+I4:  or  $3, $1, $2
+```
+~
+
+[4.20.1(a)]{font-weight:bold}  Find  all  data  dependences  in  this  instruction  sequence.
+
+---
+
+* ReadAfterWrite: I1 - I2 I3 I4(\$1), I2 - I4(\$2), I3 - I4(\$1)
+
+* WriteAfterRead: I1 - I2(\$2), I1 - I3(\$1)
+
+* WriteAfterWrite: I1 - I3(\$1)
+{.fragmented}
+
+## HW 5. 11
+
+~ {width: 50%; aligned: center}
+``` mips
+  add $1, $2, $1
+  lw  $2, 0($1)
+  lw  $1, 4($1)
+  or  $3, $1, $2
+```
+~
+
+[4.20.3(a)]{font-weight: bold} To  reduce  clock  cycle  time,  we  are  considering  a  split  of the MEM  stage  into  two  stages. Find  all  hazards  in  this  instruction  sequence  for  this  6-stage  pipeline with and then without forwarding.
+
+---
+
+The only difference is that originally load-use harzard only affects the very next instruction with RAW dependency while in this 6-stage version, it will affect next 2 intructions.
+
+* With Forwarding: I2 - I4(\$2) (not exists in 5-stage), I3 - I4(\$2)
+* Without Forwarding: I1 - I2 I3(\$1), I2 - I4(\$2), I3 - I4(\$1)
 
 
-<!-- 
-For local background images, we need to have a reference to the image
-such that it's data gets embedded into the HTML page. We define
-it using "display=none" so it is hidden in the presentation. 
-We can then refer to the image in "data-background-image". 
--->
+## HW 5. 12
 
-![bfly]
-[bfly]: images/butterfly.png "Butterfly" { display:none }
+ We assume that all  values  in  data  memory  are  zeroes  and  that  registers have  the  following  initial  values:
 
-## Basement Level 3 { data-background-image:images/butterfly.png }
-That's it, time to go back up.
+~ Begin Columns
+~ Column {width: 75%; vertical-align: bottom}
+![Screen Shot 2018-10-27 at 9.40.43 PM]
+[Screen Shot 2018-10-27 at 9.40.43 PM]: images/Screen-Shot-2018-10-27-at-9.40.43-PM.png "Screen Shot 2018-10-27 at 9.40.43 PM" { width:auto; max-width:100% }
+~
+~ Column {vertical-align: top}
+``` mips
+  add $1, $2, $1
+  lw  $2, 0($1)
+  lw  $1, 4($1)
+  or  $3, $1, $2
+```
+~
+~ End Columns
 
-[![arrowup]][back2]
+[4.20.5(a)]{font-weight: bold}  If  we  assume  forwarding  will  be  implemented  when  we  design  the  hazard  detection  unit,  but  then  we  forget  to  actually  implement  forwarding what  are  the  final  register  values  after  this  instruction  sequence?
 
-[arrowup]:  images/arrow.png "Up arrow" { width:178px; height:238px; transform:rotate(180deg) }
-[back2]:    #vertical { .image }
+---
+
+Without forwarding, the written reg can only be updated after two cycles of the execution.
+
+\$1 = 0; \$2 = 0; \$3 = 30$\lor$31 = 31~dec~
+{text-align: center}
+
+## HW 5. 13
+
+~ Begin Columns
+~ Column {width: 75%; vertical-align: bottom}
+![Screen Shot 2018-10-27 at 9.40.43 PM]
+[Screen Shot 2018-10-27 at 9.40.43 PM]: images/Screen-Shot-2018-10-27-at-9.40.43-PM.png "Screen Shot 2018-10-27 at 9.40.43 PM" { width:auto; max-width:100% }
+~
+~ Column {vertical-align: top}
+``` mips
+  add $1, $2, $1
+  lw  $2, 0($1)
+  lw  $1, 4($1)
+  or  $3, $1, $2
+```
+~
+~ End Columns
+
+[4.20.6(a)]{font-weight:bold} Add  NOPs  sequence  to  ensure  correct  execution  in  spite  of  missing  support  for  forwarding.
+
+---
+~ Begin Center 
+``` mips {width : 50%}
+  add $1, $2, $1
+  NOP
+  NOP
+  lw  $2, 0($1)
+  lw  $1, 4($1)
+  NOP
+  NOP
+  or  $3, $1, $2
+```
+~ End Center
+
 
 ~ End Vertical
 
 
-## Themes {#themes}
-
-Reveal.js comes with a few themes built in:
-
-* [Default](?#/themes)
-* [Sky](?theme=sky#/themes)
-* [Beige](?theme=beige#/themes)
-* [Serif](?theme=serif#/themes)
-* [Simple](?theme=simple#/themes)
-* [Night](?theme=night#/themes)
-* [Moon](?theme=moon#/themes)
-* [Solarized](?theme=solarized#/themes)
-
-Theme demos are loaded after the presentation which leads to flicker. In
-production you should load your theme in the `<head>` using a
-`<link>`.
-
-## Transitions { #transitions }
-
-You can select from different transitions, like:\
-[Cube](?transition=cube#/transitions) -
-[Page](?transition=page#/transitions) -
-[Concave](?transition=concave#/transitions) -
-[Zoom](?transition=zoom#/transitions) -
-[Linear](?transition=linear#/transitions) -
-[Fade](?transition=fade#/transitions) -
-[None](?transition=none#/transitions) -
-[Default](?#/transitions)
-
-
-
-## Pauses?
-
-Some pauses.
-
-* {.fragment} One
-* {.fragment} Two
-* {.fragment} Three
-
-And more:
-
-- Test 1
-- Test 2
-- Test 3
-{.fragmented}
-
-Cool!.
-
-~ Slide
-A slide with no header
-~
-
-
-## Point of View
-
-In Reveal.js Press **ESC** to enter the slide overview.
-
-Hold down alt and click on any element to zoom in on it using 
- [zoom.js]. Alt + click anywhere to zoom back out.
-
-
-[zoom.js]: http://lab.hakim.se/zoom-js
-
-
-## Works in Mobile Safari
-
-Try it out! You can swipe through the slides and pinch your way to the
-overview.
-
-
-## Printing
-
-You can print a `revealjs` presentation nicely from the browser.
-
-First give the `?print-pdf` or `?print-paper` query on your final
-presentation (in the browser address bar) and then print from the Chrome
-browser selecting `Save to PDF`.
-
-Read more about it at the [revealjs documentation](https://github.com/hakimel/reveal.js#pdf-export)
-
-## RevealJS library
-
-Normally, the `revealjs` library is loaded from a CDN but you can specify your
-own url using metadata:
-
-    Reveal Url: <my url>
-
-This can be useful when using a [server to run revealjs](https://github.com/hakimel/reveal.js#full-setup)
-where you may use something like:
-
-    @nopreview Reveal Url: http://localhost:8000/reveal.js
-
-
-## Thanks for looking :-)
 
 [slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
 [slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}

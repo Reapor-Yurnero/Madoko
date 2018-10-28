@@ -239,8 +239,8 @@ The only difference is that originally load-use harzard only affects the very ne
 
 ~ Begin Columns
 ~ Column {width: 75%; vertical-align: bottom}
-![Screen Shot 2018-10-27 at 9.40.43 PM]
-[Screen Shot 2018-10-27 at 9.40.43 PM]: images/Screen-Shot-2018-10-27-at-9.40.43-PM.png "Screen Shot 2018-10-27 at 9.40.43 PM" { width:auto; max-width:100% }
+![5_12]
+[5_12]: images/5_12.png "5_12" { width:auto; max-width:100% }
 ~
 ~ Column {vertical-align: top}
 ``` mips
@@ -265,8 +265,8 @@ Without forwarding, the written reg can only be updated after two cycles of the 
 
 ~ Begin Columns
 ~ Column {width: 75%; vertical-align: bottom}
-![Screen Shot 2018-10-27 at 9.40.43 PM]
-[Screen Shot 2018-10-27 at 9.40.43 PM]: images/Screen-Shot-2018-10-27-at-9.40.43-PM.png "Screen Shot 2018-10-27 at 9.40.43 PM" { width:auto; max-width:100% }
+![5_12]
+[5_12]: images/5_12.png "5_12" { width:auto; max-width:100% }
 ~
 ~ Column {vertical-align: top}
 ``` mips

@@ -9,7 +9,7 @@ Logo          : True
 Our target is to build up a dating system, where users can commit 'interested'/'uninterested' to others. The system will only match and inform two users when they are exactly interested in each other. A few constraints need to be accomplished:
 
 * Even though server side may help match two users, the server itself will not have any idea bout this private information.
-* No extra information should be leaked in any form, i.e. one user should not know whether the other side is interested on him or not unless there's a match.
+* To avoid embarrassment case that might happen in reality, if a user A is not interested in another user B, then A should not know whether B is interested in A in any cases.
 
 # Related Works/Problems and Their Solutions
 
@@ -26,3 +26,12 @@ Our target is to build up a dating system, where users can commit 'interested'/'
 ## Millionaire Problem
 
 # Our Proposed Solution
+
+Based on the the literature research we have done so far and hinted by Manuel, we currently have a temporary design for this system.
+
+User A commits whether he's interested in the other users on the system. For instance, he's interested in user B and a bit 1 is committed. On the other hand, user B also has committed a bit for A, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an agreement with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B's secret string under B's public key while the latter bit string is the encryption of A's secret string under B's public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.
+
+# Limitation
+
+It's obvious this solution is not efficient with $\mathcal{O}(n^2)$ complexity and thus cannot scale. Also, some information is leaked because A will know B is not interested in him when he obtains a 0 but commits an 1. But this is not too unacceptable because what we care most is the case B is not interested in A but she/he finally knows that A is interested in her/him.
+

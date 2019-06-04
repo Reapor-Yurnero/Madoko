@@ -1,0 +1,28 @@
+Title         : Literature Review
+Author        : Xiaohan Fu
+Logo          : True
+
+[TITLE]
+
+# Problem Clarification
+
+Our target is to build up a dating system, where users can commit 'interested'/'uninterested' to others. The system will only match and inform two users when they are exactly interested in each other. A few constraints need to be accomplished:
+
+* Even though server side may help match two users, the server itself will not have any idea bout this private information.
+* No extra information should be leaked in any form, i.e. one user should not know whether the other side is interested on him or not unless there's a match.
+
+# Related Works/Problems and Their Solutions
+
+## Cryptographic Dating
+
+## Bit Commitment
+
+### Overview
+
+### Method One: Collision Free Hashing
+
+### Method Two: Pseudo-random Generator
+
+## Millionaire Problem
+
+# Our Proposed Solution

@@ -1,5 +1,5 @@
 Title         : Literature Review
-Author        : Xiaohan Fu
+Author        : VE450 TEAM 20
 Logo          : True
 
 [TITLE]
@@ -15,6 +15,46 @@ Our target is to build up a dating system, where users can commit 'interested'/'
 
 ## Cryptographic Dating
 
+### Overview
+
+The dating problem can be reduced to calculating an $AND$ function. If on client has 0 as the input, he or she should not know the other client’s input. Also, according to our demand for the dating system, we require the server not learning anything about the choices of the clients. However, we cannot just remove the server from the process because it would cause fairness problem. So, method of secure multi-party computation is needed.
+
+The main idea of the approach is that a circuit of logical gates can represent any computation that can be performed by a Turing machine, and such circuit is called “garbled circuit”. In our case, the computation is $f(a, b) = a\;AND\;b$. We can represent Alice’s input bit by $A_{0}$ and $A_{1}$ for $0$ and $1$ correspondingly. Similarly, Bob’s bit is represented by $B_{0}$ and $B_{1}$, the possible outputs are represented by $R_{0}$ and $R_{1}$. 
+
+### Initial contact
+
+Initially, Alice and Bob should establish a secure communication channel. This communication scheme should be initiated with all members of the community or a randomized subset in order not to leak information. The server then could act as an intermediary for any communication between two clients.
+
+(*However, in this way, I don't know if it is possible to add a new client after the scheme was established.*)
+
+### Random numbers generation
+
+To hide the numbers from the server, Alice and Bob agree on a seed for a pseudo random number generation through Diffie Hellman key exchange. The seed then is used to generate 6 random numbers, the first two are used to represent the possible bits of Alice’s choices, the second for Bob, and the last two for the results. Also, the pseudo random number generator used should be cryptographically secure ($2^{128}$).
+
+### Creating the garbled circuit
+
+Using the generated random numbers, Alice and Bod encrypt $R_{0}$ and $R_{1}$ using the combination of $(A{0}, A_{1})$ and $(B_{0}, B_{1})$ as keys to an industry standard symmetric encryption scheme (referred by $Enc$).
+
+(*Maybe AES could be used here.*)
+
+~ Math
+\begin{aligned}
+&Enc_{A_{0}}(Enc_{B_{0}}(R_{0})) \\
+&Enc_{A_{0}}(Enc_{B_{1}}(R_{0})) \\
+&Enc_{A_{1}}(Enc_{B_{1}}(R_{0})) \\
+&Enc_{A_{1}}(Enc_{B_{1}}(R_{1}))
+\end{aligned}
+~
+
+Alice and Bob then send these four ciphers along with $R_{0}$ and $R_{1}$ separately to the server. The sever only proceeds if the two circuits are the same. 
+
+(*The sets Alice and Bob send to the server should be sorted so that the server cannot guess which cipher, however, it is not clear for me how to sort.*)
+
+##### Sending preferences
+
+After all the above processes are done, the server asks Alice and Bob to submit their preferences. The server tries to decrypt all the ciphers it has and if one of the decryptions opens a number in $R_{0}$ or $R_{1}$, the server sends that number to both Alice and Bob.
+
+
 ## Bit Commitment
 
 ### Overview
@@ -25,11 +65,26 @@ Our target is to build up a dating system, where users can commit 'interested'/'
 
 ## Millionaire Problem
 
+### Problem Description
+The problem discuss two millionaires, Alice and Bob. They want to know who is much richer but both of them are not willing to let the other millionaire how rich he is. This problem is a classic secure information exchange problem which has already been solved.
+
+### Algorithm
+Let binary string $s=s_ns_{n-1}\cdots s_1$ to represent the money. We then construct two set of string as follows:
+$S_s^0=\{s_ns_{n-1}\cdots s_{i+1}1|s_i=0\}$
+$S_s^1=\{s_ns_{n-1}\cdots s_{i}|s_i=1\}$
+We can prove that if $a>b$, the two sets $S_a^1,\ S_b^0$ should have a common element.
+
+### Secure Communication
+To explain the algorithm more easily, we first focus on a simpler problem. There are four kinds of salary for Alice and Bob may have: 10\$, 20\$, 30\$, 40\$. We made four lockers for them with corresponding salary tags on the lockers. First Alice put an item in each locker with a tag that has a higher salary than Alice's. Then Bob open every locker with a tag that has a lower salary than Bob's. If Bob find an item in one of the locker, then Alice has a lower salary than Bob.
+We extend this small problem in this way: We replace the salary on the lockers to be $S_b^0$.
+If there is an item in one of the lockers when Alice check them with $S_a^1$, Alice is richer than Bob.
+There is a complicated algorithm to use bitwise rotation and XOR operation to provide implement which can ensure the the server cannot get any information.
+
 # Our Proposed Solution
 
-Based on the the literature research we have done so far and hinted by Manuel, we currently have a temporary design for this system.
+Based on the the literature research we have done so far and hinted by Manuel, we have a temporary design for this system.
 
-User A commits whether he's interested in the other users on the system. For instance, he's interested in user B and a bit 1 is committed. On the other hand, user B also has committed a bit for A, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an agreement with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B's secret string under B's public key while the latter bit string is the encryption of A's secret string under B's public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.
+User Alice commits whether she's interested in the other users of this system. For instance, she's interested in user Bob and a bit 1 is committed. On the other hand, user Bob also has committed a bit for Alice, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an secret encryption key with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B's secret string under B's public key while the latter bit string is the encryption of A's secret string under B's public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.
 
 # Limitation
 

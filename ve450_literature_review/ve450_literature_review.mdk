@@ -4,12 +4,21 @@ Logo          : True
 
 [TITLE]
 
+# Background
+
+In reality, like on campus, it's quite common to happen that a boy and a girl are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused. But it's extremely regretful to see such a beautiful relationship nipped in the bud. To solve this problem, a secure and private dating system is needed. The server-side of this system will help match two users if and only if they are mutually interested, while the server itself should not be able to know anything about this private information. This way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.
+
 # Problem Clarification
 
-Our target is to build up a dating system, where users can commit 'interested'/'uninterested' to others. The system will only match and inform two users when they are exactly interested in each other. A few constraints need to be accomplished:
+To make things simplified while maintain the extendibility, we focus on small groups of people who all know each other, e.g. students in a same social club, since embarrassment may only occur between two people who know each other and may meet regularly. We restrict the quota of such group to be 50 people based on Dunbar's number.
 
-* Even though server side may help match two users, the server itself will not have any idea about this private information.
-* To avoid embarrassing case that might happen in reality, if a user A is not interested in another user B, then A should not know whether B is interested in A in any case.
+In each group, each user can commit one bit for the other members respectively representing his/her interest and no commitment means no interest by default. To be more clear, this bit is by default 0 (on registration), and the user will commit a 1 to show his/her interest on a specific person.
+
+Since we are only interested in truthful and potentially long-last relationship, a user is restricted to have three committed 1 at any moment. Users can change their mind, of course, but restrictedly. They can only change one committed 1 to be 0 and set another bit to be 1 each two weeks.
+
+Based on the above set-up, the server should match and inform two users if their bits towards the other are both 1 while the server does not know about this at all. Besides, to avoid embarrassment, we should prohibit the situation to happen that user A commit 1 to B while user B commit 0 to A and B knows that A has committed 1 to him/her afterwards.
+
+
 
 # Related Works/Problems and Their Solutions
 

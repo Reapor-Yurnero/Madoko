@@ -1,26 +1,90 @@
-Title         : Literature Review
-Author        : VE450 TEAM 20
+Title         : Design Review I
+Author        : VE450 TEAM 28
 Logo          : True
 
 [TITLE]
 
-# Background
+# Basic Information
 
-In reality, like on campus, it's quite common to happen that a boy and a girl are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused. But it's extremely regretful to see such a beautiful relationship nipped in the bud. To solve this problem, a secure and private dating system is needed. The server-side of this system will help match two users if and only if they are mutually interested, while the server itself should not be able to know anything about this private information. This way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.
+**title page of slides*
 
-# Problem Clarification
+* Project Name: Private and Secure Dating System\
+* Faculty Sponsor: Manuel Charlemagne\
+* Team 28
 
-To make things simplified while maintain the extendibility, we focus on small groups of people who all know each other, e.g. students in a same social club, since embarrassment may only occur between two people who know each other and may meet regularly. We restrict the quota of such group to be 50 people based on Dunbar's number.
+# Team Overview
 
-In each group, each user can commit one bit for the other members respectively representing his/her interest and no commitment means no interest by default. To be more clear, this bit is by default 0 (on registration), and the user will commit a 1 to show his/her interest on a specific person.
+**this part could be confined to one page in slides*\
+**feel free to edit this part*
 
-Since we are only interested in truthful and potentially long-last relationship, a user is restricted to have three committed 1 at any moment. Users can change their mind, of course, but restrictedly. They can only change one committed 1 to be 0 and set another bit to be 1 each two weeks.
+* Xiaohan Fu: Team leader, mainly responsible for coordination, communication, algorithm design and implementation
+* Yihao Liu: mainly responsible for algorithm design and implementation
+* Yichen Hu: mainly responsible for algorithm design and verification
+* Sifan Jiang: mainly responsible for website development and algorithm design
+* Yunguo Cai: mainly responsible for technical communication and website development
 
-Based on the above set-up, the server should match and inform two users if their bits towards the other are both 1 while the server does not know about this at all. Besides, to avoid embarrassment, we should prohibit the situation to happen that user A commit 1 to B while user B commit 0 to A and B knows that A has committed 1 to him/her afterwards.
+# Problem Statement
 
+**Review of Design Problem part in slides, consisting of 2-3 pages*\
+**this part includes the context/background, needs and constraints of the problem*
 
+In reality, it's quite common to happen that a boy and a girl of a same class are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused as they are going to meet and study together regularly. But it's extremely regretful to see such a beautiful relationship nipped in the bud. 
+
+To help these poor people in these small groups brave to express their love, a secure and private dating platform (website) is needed. The server-side of this system will help match two users if and only if they are mutually interested. By this way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.
+
+However, we should never base the safety of privacy on the morality of service provider, which is the precious lesson taught by the Facebook-Cambridge data leak issue. A reliable mechanism is necessary to ensure that the server side is not able to know anything about the private information it's bridging in our system.
+
+# Quality Function Deployment (QFD Process)
+
+## Customer Requirement (CR) - Corresponding Weight
+
+**two more CR might be needed*
+
+* Good-looking UI - 2
+* Easy to set up the basic information and get started quickly - 4
+* Easy to find target user within small shared groups - 6
+* No concerns to be revealed (anonymous) - 10
+* Private information (i.e. users' targets) fully secured - 10
+* Prompt notification on matching - 8
+*  
+* 
+
+## Benchmark Product
+
+Actually, no existing products solve our needs specifically. We are to design a brand new dating system which focus on small groups and embarrassment avoidance.
+
+Consider a typical traditional dating system like zhenai.com as our benchmark, evaluate it as 1 = doesn’t satisfy at all
+, 2 = satisfies “slightly”
+, 3 = satisfies “somewhat”
+, 4 = satisfies “mostly”
+, 5 = satisfies perfectly:
+
+* Good-looking UI - 2
+* Easy to set up the basic information and get started quickly - 3
+* Easy to find target user within small shared groups - 1
+* No concerns to be revealed (anonymous) - 1
+* Private information (i.e. users' targets) fully secured - 1
+* Prompt notification on matching - 4
+
+## Generated Engineer Specifications
+
+To be completed as a whole QFD chart. (I will do this)
+
+# Schedule
+
+**A gantt chart is needed to be generated from the following schedule*
+
+* Problem modeling and clarification: Week 2 - 4
+* Research： Week 2 - 8
+* Website Development: Week 5 - 8
+* Algorithm Design: Week 3 - 6
+* Implement Algorithm and Verify: Week 7 - 8
+* Integrate Algorithm with Website: Week 9 - 10
+* Test and Improve Whole System: Week 11 - 12
 
 # Related Works/Problems and Their Solutions
+
+**literature research part*
 
 ## Cryptographic Dating
 
@@ -160,22 +224,33 @@ We extend this small problem in this way: We replace the salary on the lockers t
 If there is an item in one of the lockers when Alice check them with $S_a^1$, Alice is richer than Bob.
 There is a complicated algorithm to use bitwise rotation and XOR operation to provide implement which can ensure the the server cannot get any information.
 
-# Our Proposed Solution
 
-Based on the the literature research we have done so far and hinted by Manuel, we have a temporary design for this system.
+# A Proposed Solution
+
+## General System Design
+
+**system design, set up and restrictions*
+
+To make things simplified while maintain the extendibility, we focus on small groups of people who all know each other, e.g. students in a same interest club, since embarrassment may only occur between two people who know each other and may meet regularly. (For two completely strange people, there's little embarrassment as they might never contact or meet again.) We restrict the quota of such group to be 50 people based on Dunbar's number.
+
+In each group, each user can commit one bit for the other members respectively representing his/her interest and no commitment means no interest by default. To be more clear, this bit is by default 0 (on registration), and the user will commit a 1 to show his/her interest on a specific person.
+
+Since we are only interested in truthful and potentially long-last relationship, a user is restricted to have three committed 1 at any moment. Users can change their mind, of course, but restrictedly. They can only change one committed 1 to be 0 and set another bit to be 1 each two weeks.
+
+Based on the above set-up, the server should match and inform two users if their bits towards the other are both 1 while the server does not know about this at all. Besides, to avoid embarrassment, we should prohibit the situation to happen that user A commit 1 to B while user B commit 0 to A and B knows that A has committed 1 to him/her afterwards.
+
+## Matching Algorithm
+
+**Out of date, to be modified*
 
 User Alice commits whether she's interested in the other users of this system. For instance, she's interested in user Bob and a bit 1 is committed. On the other hand, user Bob also has committed a bit for Alice, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an secret encryption key with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B's secret string under B's public key while the latter bit string is the encryption of A's secret string under B's public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.
 
-*Note: this solution need to be verified further.*
-
-# Limitation
+## Limitation
 
 It's obvious this solution is not efficient with $\mathcal{O}(n^2)$ complexity and thus cannot scale. Also, some information is leaked because A will know B is not interested in him when he obtains a 0 but commits an 1. But this is not too unacceptable because what we care most is the case B is not interested in A but she/he finally knows that A is interested in her/him.
 
 
 # References   {-}
-John Mikhail, Emad Farag, Edgar Minasyan, Malek Ben Romdhane, _Cryptographic Dating_.
-
-Hristo Lulev, _Overview of Bit Commitment Schemes_.
-
+John Mikhail, Emad Farag, Edgar Minasyan, Malek Ben Romdhane, _Cryptographic Dating_.\
+Hristo Lulev, _Overview of Bit Commitment Schemes_.\
 John Ioannidis, Angelos Keromytis, Moti Yung (Eds.), _Applied Cryptography and Network Security_

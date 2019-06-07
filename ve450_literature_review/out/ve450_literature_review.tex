@@ -13,68 +13,229 @@
 %mdk-data-line={5}
 \mdxtitleblockstart{}
 %mdk-data-line={5}
-\mdxtitle{\mdline{5}Literature Review}%mdk
+\mdxtitle{\mdline{5}Design Review I}%mdk
 \mdxauthorstart{}
 %mdk-data-line={10}
-\mdxauthorname{\mdline{10}VE450 TEAM 20}%mdk
+\mdxauthorname{\mdline{10}VE450 TEAM 28}%mdk
 \mdxauthorend\mdtitleauthorrunning{}{}\mdxtitleblockend%mdk
 
 %mdk-data-line={7}
-\section{\mdline{7}1.\hspace*{0.5em}\mdline{7}Problem Clarification}\label{sec-problem-clarification}%mdk%mdk
+\section{\mdline{7}1.\hspace*{0.5em}\mdline{7}Basic Information}\label{sec-basic-information}%mdk%mdk
 
 %mdk-data-line={9}
-\noindent\mdline{9}Our target is to build up a dating system, where users can commit \mdline{9}\textquoteleft{}interested\textquoteright{}\mdline{9}/\mdline{9}\textquoteleft{}uninterested\textquoteright{}\mdline{9} to others. The system will only match and inform two users when they are exactly interested in each other. A few constraints need to be accomplished:%mdk
+\noindent\mdline{9}*\mdline{9}\emph{title page of slides}\mdline{9}%mdk
 
 %mdk-data-line={11}
 \begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
 %mdk-data-line={11}
-\item\mdline{11}Even though server side may help match two users, the server itself will not have any idea bout this private information.%mdk
+\item\mdline{11}Project Name: Private and Secure Dating System\mdline{11}\mdbr%mdk
 
 %mdk-data-line={12}
-\item\mdline{12}To avoid embarrassment case that might happen in reality, if a user A is not interested in another user B, then A should not know whether B is interested in A in any cases.%mdk
+\item\mdline{12}Faculty Sponsor: Manuel Charlemagne\mdline{12}\mdbr%mdk
+
+%mdk-data-line={13}
+\item\mdline{13}Team 28%mdk
 %mdk
 \end{itemize}%mdk
 
-%mdk-data-line={14}
-\section{\mdline{14}2.\hspace*{0.5em}\mdline{14}Related Works/Problems and Their Solutions}\label{sec-related-worksproblems-and-their-solutions}%mdk%mdk
+%mdk-data-line={15}
+\section{\mdline{15}2.\hspace*{0.5em}\mdline{15}Team Overview}\label{sec-team-overview}%mdk%mdk
 
-%mdk-data-line={16}
-\subsection{\mdline{16}2.1.\hspace*{0.5em}\mdline{16}Cryptographic Dating}\label{sec-cryptographic-dating}%mdk%mdk
-
-%mdk-data-line={18}
-\subsubsection{\mdline{18}2.1.1.\hspace*{0.5em}\mdline{18}Overview}\label{sec-overview}%mdk%mdk
+%mdk-data-line={17}
+\noindent\mdline{17}*\mdline{17}\emph{this part could be confined to one page in slides}\mdline{17}\mdbr
+\mdline{18}*\mdline{18}\emph{feel free to edit this part}\mdline{18}%mdk
 
 %mdk-data-line={20}
-\noindent\mdline{20}The dating problem can be reduced to calculating an AND function. If on client has 0 as the input, he or she should not know the other client’s input. Also, according to our demand for the dating system, we require the server not learning anything about the choices of the clients. However, we cannot just remove the server from the process because it would cause fairness problem. So, method of secure multi-party computation is needed.%mdk
+\begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
+
+%mdk-data-line={20}
+\item\mdline{20}Xiaohan Fu: Team leader, mainly responsible for coordination, communication, algorithm design and implementation%mdk
+
+%mdk-data-line={21}
+\item\mdline{21}Yihao Liu: mainly responsible for algorithm design and implementation%mdk
 
 %mdk-data-line={22}
-\mdline{22}The main idea of the approach is that a circuit of logical gates can represent any computation that can be performed by a Turing machine, and such circuit is called “garbled circuit”. In our case, the computation is \mdline{22}$f(a, b) = a \land b$\mdline{22}. We can represent Alice’s input bit by \mdline{22}$A_{0}$\mdline{22} and \mdline{22}$A_{1}$\mdline{22} for \mdline{22}$0$\mdline{22} and \mdline{22}$1$\mdline{22} correspondingly. Similarly, Bob’s bit is represented by \mdline{22}$B_{0}$\mdline{22} and \mdline{22}$B_{1}$\mdline{22}, the possible outputs are represented by \mdline{22}$R_{0}$\mdline{22} and \mdline{22}$R_{1}$\mdline{22}.%mdk
+\item\mdline{22}Yichen Hu: mainly responsible for algorithm design and verification%mdk
+
+%mdk-data-line={23}
+\item\mdline{23}Sifan Jiang: mainly responsible for website development and algorithm design%mdk
 
 %mdk-data-line={24}
-\subsubsection{\mdline{24}2.1.2.\hspace*{0.5em}\mdline{24}Initial contact}\label{sec-initial-contact}%mdk%mdk
+\item\mdline{24}Yunguo Cai: mainly responsible for technical communication and website development%mdk
+%mdk
+\end{itemize}%mdk
 
 %mdk-data-line={26}
-\noindent\mdline{26}Initially, Alice and Bob should establish a secure communication channel. This communication scheme should be initiated with all members of the community or a randomized subset in order not to leak information. The server then could act as an intermediary for any communication between two clients.%mdk
+\section{\mdline{26}3.\hspace*{0.5em}\mdline{26}Problem Statement}\label{sec-problem-statement}%mdk%mdk
 
 %mdk-data-line={28}
-\mdline{28}(\mdline{28}\emph{However, in this way, I don't know if it is possible to add a new client after the scheme was established.}\mdline{28})%mdk
+\noindent\mdline{28}*\mdline{28}\emph{Review of Design Problem part in slides, consisting of 2-3 pages}\mdline{28}\mdbr
+\mdline{29}*\mdline{29}\emph{this part includes the context/background, needs and constraints of the problem}\mdline{29}%mdk
 
-%mdk-data-line={30}
-\subsubsection{\mdline{30}2.1.3.\hspace*{0.5em}\mdline{30}Random numbers generation}\label{sec-random-numbers-generation}%mdk%mdk
+%mdk-data-line={31}
+\mdline{31}In reality, it\mdline{31}'\mdline{31}s quite common to happen that a boy and a girl of a same class are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused as they are going to meet and study together regularly. But it\mdline{31}'\mdline{31}s extremely regretful to see such a beautiful relationship nipped in the bud.%mdk
 
-%mdk-data-line={32}
-\noindent\mdline{32}To hide the numbers from the server, Alice and Bob agree on a seed for a pseudo random number generation through Diffie Hellman key exchange. The seed then is used to generate 6 random numbers, the first two are used to represent the possible bits of Alice’s choices, the second for Bob, and the last two for the results. Also, the pseudo random number generator used should be cryptographically secure (\mdline{32}$2^{128}$\mdline{32}).%mdk
+%mdk-data-line={33}
+\mdline{33}To help these poor people in these small groups brave to express their love, a secure and private dating platform (website) is needed. The server-side of this system will help match two users if and only if they are mutually interested. By this way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.%mdk
 
-%mdk-data-line={34}
-\subsubsection{\mdline{34}2.1.4.\hspace*{0.5em}\mdline{34}Creating the garbled circuit}\label{sec-creating-the-garbled-circuit}%mdk%mdk
+%mdk-data-line={35}
+\mdline{35}However, we should never base the safety of privacy on the morality of service provider, which is the precious lesson taught by the Facebook-Cambridge data leak issue. A reliable mechanism is necessary to ensure that the server side is not able to know anything about the private information it\mdline{35}'\mdline{35}s bridging in our system.%mdk
 
-%mdk-data-line={36}
-\noindent\mdline{36}Using the generated random numbers, Alice and Bod encrypt \mdline{36}$R_{0}$\mdline{36} and \mdline{36}$R_{1}$\mdline{36} using the combination of \mdline{36}$(A{0}, A_{1})$\mdline{36} and \mdline{36}$(B_{0}, B_{1})$\mdline{36} as keys to an industry standard symmetric encryption scheme (referred by \mdline{36}$Enc$\mdline{36}).%mdk
+%mdk-data-line={37}
+\section{\mdline{37}4.\hspace*{0.5em}\mdline{37}Quality Function Deployment (QFD Process)}\label{sec-quality-function-deployment-qfd-process}%mdk%mdk
 
-%mdk-data-line={38}
-\mdline{38}(\mdline{38}\emph{Maybe AES could be used here.}\mdline{38})%mdk
-\noindent\noindent\[%mdk-data-line={41}
+%mdk-data-line={39}
+\subsection{\mdline{39}4.1.\hspace*{0.5em}\mdline{39}Customer Requirement (CR)\mdline{39} \mdline{39}- Corresponding Weight}\label{sec-customer-requirement-cr---corresponding-weight}%mdk%mdk
+
+%mdk-data-line={41}
+\noindent\mdline{41}*\mdline{41}\emph{two more CR might be needed}\mdline{41}%mdk
+
+%mdk-data-line={43}
+\begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
+
+%mdk-data-line={43}
+\item\mdline{43}Good-looking UI\mdline{43} \mdline{43}- 2%mdk
+
+%mdk-data-line={44}
+\item\mdline{44}Easy to set up the basic information and get started quickly\mdline{44} \mdline{44}- 4%mdk
+
+%mdk-data-line={45}
+\item\mdline{45}Easy to find target user within small shared groups\mdline{45} \mdline{45}- 6%mdk
+
+%mdk-data-line={46}
+\item\mdline{46}No concerns to be revealed (anonymous)\mdline{46} \mdline{46}- 10%mdk
+
+%mdk-data-line={47}
+\item\mdline{47}Private information (i.e. users\mdline{47}'\mdline{47} targets) fully secured\mdline{47} \mdline{47}- 10%mdk
+
+%mdk-data-line={48}
+\item\mdline{48}Prompt notification on matching\mdline{48} \mdline{48}- 8%mdk
+
+%mdk-data-line={49}
+\item%mdk
+
+%mdk-data-line={50}
+\item%mdk
+%mdk
+\end{itemize}%mdk
+
+%mdk-data-line={52}
+\subsection{\mdline{52}4.2.\hspace*{0.5em}\mdline{52}Benchmark Product}\label{sec-benchmark-product}%mdk%mdk
+
+%mdk-data-line={54}
+\noindent\mdline{54}Actually, no existing products solve our needs specifically. We are to design a brand new dating system which focus on small groups and embarrassment avoidance.%mdk
+
+%mdk-data-line={56}
+\mdline{56}Consider a typical traditional dating system like zhenai.com as our benchmark, evaluate it as 1 = doesn’t satisfy at all
+, 2 = satisfies “slightly”
+, 3 = satisfies “somewhat”
+, 4 = satisfies “mostly”
+, 5 = satisfies perfectly:%mdk
+
+%mdk-data-line={62}
+\begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
+
+%mdk-data-line={62}
+\item\mdline{62}Good-looking UI\mdline{62} \mdline{62}- 2%mdk
+
+%mdk-data-line={63}
+\item\mdline{63}Easy to set up the basic information and get started quickly\mdline{63} \mdline{63}- 3%mdk
+
+%mdk-data-line={64}
+\item\mdline{64}Easy to find target user within small shared groups\mdline{64} \mdline{64}- 1%mdk
+
+%mdk-data-line={65}
+\item\mdline{65}No concerns to be revealed (anonymous)\mdline{65} \mdline{65}- 1%mdk
+
+%mdk-data-line={66}
+\item\mdline{66}Private information (i.e. users\mdline{66}'\mdline{66} targets) fully secured\mdline{66} \mdline{66}- 1%mdk
+
+%mdk-data-line={67}
+\item\mdline{67}Prompt notification on matching\mdline{67} \mdline{67}- 4%mdk
+%mdk
+\end{itemize}%mdk
+
+%mdk-data-line={69}
+\subsection{\mdline{69}4.3.\hspace*{0.5em}\mdline{69}Generated Engineer Specifications}\label{sec-generated-engineer-specifications}%mdk%mdk
+
+%mdk-data-line={71}
+\noindent\mdline{71}To be completed as a whole QFD chart. (I will do this)%mdk
+
+%mdk-data-line={73}
+\section{\mdline{73}5.\hspace*{0.5em}\mdline{73}Schedule}\label{sec-schedule}%mdk%mdk
+
+%mdk-data-line={75}
+\noindent\mdline{75}*\mdline{75}\emph{A gantt chart is needed to be generated from the following schedule}\mdline{75}%mdk
+
+%mdk-data-line={77}
+\begin{itemize}[noitemsep,topsep=\mdcompacttopsep]%mdk
+
+%mdk-data-line={77}
+\item\mdline{77}Problem modeling and clarification: Week 2\mdline{77} \mdline{77}- 4%mdk
+
+%mdk-data-line={78}
+\item\mdline{78}Research： Week 2\mdline{78} \mdline{78}- 8%mdk
+
+%mdk-data-line={79}
+\item\mdline{79}Website Development: Week 5\mdline{79} \mdline{79}- 8%mdk
+
+%mdk-data-line={80}
+\item\mdline{80}Algorithm Design: Week 3\mdline{80} \mdline{80}- 6%mdk
+
+%mdk-data-line={81}
+\item\mdline{81}Implement Algorithm and Verify: Week 7\mdline{81} \mdline{81}- 8%mdk
+
+%mdk-data-line={82}
+\item\mdline{82}Integrate Algorithm with Website: Week 9\mdline{82} \mdline{82}- 10%mdk
+
+%mdk-data-line={83}
+\item\mdline{83}Test and Improve Whole System: Week 11\mdline{83} \mdline{83}- 12%mdk
+%mdk
+\end{itemize}%mdk
+
+%mdk-data-line={85}
+\section{\mdline{85}6.\hspace*{0.5em}\mdline{85}Related Works/Problems and Their Solutions}\label{sec-related-worksproblems-and-their-solutions}%mdk%mdk
+
+%mdk-data-line={87}
+\noindent\mdline{87}*\mdline{87}\emph{literature research part}\mdline{87}%mdk
+
+%mdk-data-line={89}
+\subsection{\mdline{89}6.1.\hspace*{0.5em}\mdline{89}Cryptographic Dating}\label{sec-cryptographic-dating}%mdk%mdk
+
+%mdk-data-line={91}
+\subsubsection{\mdline{91}6.1.1.\hspace*{0.5em}\mdline{91}Overview}\label{sec-overview}%mdk%mdk
+
+%mdk-data-line={93}
+\noindent\mdline{93}The dating problem can be reduced to calculating an AND function. If on client has 0 as the input, he or she should not know the other client’s input. Also, according to our demand for the dating system, we require the server not learning anything about the choices of the clients. However, we cannot just remove the server from the process because it would cause fairness problem. So, method of secure multi-party computation is needed.%mdk
+
+%mdk-data-line={95}
+\mdline{95}The main idea of the approach is that a circuit of logical gates can represent any computation that can be performed by a Turing machine, and such circuit is called “garbled circuit”. In our case, the computation is \mdline{95}$f(a, b) = a \land b$\mdline{95}. We can represent Alice’s input bit by \mdline{95}$A_{0}$\mdline{95} and \mdline{95}$A_{1}$\mdline{95} for \mdline{95}$0$\mdline{95} and \mdline{95}$1$\mdline{95} correspondingly. Similarly, Bob’s bit is represented by \mdline{95}$B_{0}$\mdline{95} and \mdline{95}$B_{1}$\mdline{95}, the possible outputs are represented by \mdline{95}$R_{0}$\mdline{95} and \mdline{95}$R_{1}$\mdline{95}.%mdk
+
+%mdk-data-line={97}
+\subsubsection{\mdline{97}6.1.2.\hspace*{0.5em}\mdline{97}Initial contact}\label{sec-initial-contact}%mdk%mdk
+
+%mdk-data-line={99}
+\noindent\mdline{99}Initially, Alice and Bob should establish a secure communication channel. This communication scheme should be initiated with all members of the community or a randomized subset in order not to leak information. The server then could act as an intermediary for any communication between two clients.%mdk
+
+%mdk-data-line={101}
+\mdline{101}(\mdline{101}\emph{However, in this way, I don't know if it is possible to add a new client after the scheme was established.}\mdline{101})%mdk
+
+%mdk-data-line={103}
+\subsubsection{\mdline{103}6.1.3.\hspace*{0.5em}\mdline{103}Random numbers generation}\label{sec-random-numbers-generation}%mdk%mdk
+
+%mdk-data-line={105}
+\noindent\mdline{105}To hide the numbers from the server, Alice and Bob agree on a seed for a pseudo random number generation through Diffie Hellman key exchange. The seed then is used to generate 6 random numbers, the first two are used to represent the possible bits of Alice’s choices, the second for Bob, and the last two for the results. Also, the pseudo random number generator used should be cryptographically secure (\mdline{105}$2^{128}$\mdline{105}).%mdk
+
+%mdk-data-line={107}
+\subsubsection{\mdline{107}6.1.4.\hspace*{0.5em}\mdline{107}Creating the garbled circuit}\label{sec-creating-the-garbled-circuit}%mdk%mdk
+
+%mdk-data-line={109}
+\noindent\mdline{109}Using the generated random numbers, Alice and Bod encrypt \mdline{109}$R_{0}$\mdline{109} and \mdline{109}$R_{1}$\mdline{109} using the combination of \mdline{109}$(A{0}, A_{1})$\mdline{109} and \mdline{109}$(B_{0}, B_{1})$\mdline{109} as keys to an industry standard symmetric encryption scheme (referred by \mdline{109}$Enc$\mdline{109}).%mdk
+
+%mdk-data-line={111}
+\mdline{111}(\mdline{111}\emph{Maybe AES could be used here.}\mdline{111})%mdk
+\noindent\noindent\[%mdk-data-line={114}
 \begin{aligned}
 &Enc_{A_{0}}(Enc_{B_{0}}(R_{0})) \\
 &Enc_{A_{0}}(Enc_{B_{1}}(R_{0})) \\
@@ -82,150 +243,150 @@
 &Enc_{A_{1}}(Enc_{B_{1}}(R_{1}))
 \end{aligned}
 \]%mdk
-\noindent\mdline{49}Alice and Bob then send these four ciphers along with \mdline{49}$R_{0}$\mdline{49} and \mdline{49}$R_{1}$\mdline{49} separately to the server. The sever only proceeds if the two circuits are the same. 
+\noindent\mdline{122}Alice and Bob then send these four ciphers along with \mdline{122}$R_{0}$\mdline{122} and \mdline{122}$R_{1}$\mdline{122} separately to the server. The sever only proceeds if the two circuits are the same. 
 
-%mdk-data-line={51}
-\mdline{51}(\mdline{51}\emph{The sets Alice and Bob send to the server should be sorted so that the server cannot guess which cipher, however, it is not clear for me how to sort.}\mdline{51})%mdk
+%mdk-data-line={124}
+\mdline{124}(\mdline{124}\emph{The sets Alice and Bob send to the server should be sorted so that the server cannot guess which cipher, however, it is not clear for me how to sort.}\mdline{124})%mdk
 
-%mdk-data-line={53}
-\subsubsection{\mdline{53}2.1.5.\hspace*{0.5em}\mdline{53}Sending preferences}\label{sec-sending-preferences}%mdk%mdk
+%mdk-data-line={126}
+\subsubsection{\mdline{126}6.1.5.\hspace*{0.5em}\mdline{126}Sending preferences}\label{sec-sending-preferences}%mdk%mdk
 
-%mdk-data-line={55}
-\noindent\mdline{55}After all the above processes are done, the server asks Alice and Bob to submit their preferences. The server tries to decrypt all the ciphers it has and if one of the decryptions opens a number in \mdline{55}$R_{0}$\mdline{55} or \mdline{55}$R_{1}$\mdline{55}, the server sends that number to both Alice and Bob.%mdk
+%mdk-data-line={128}
+\noindent\mdline{128}After all the above processes are done, the server asks Alice and Bob to submit their preferences. The server tries to decrypt all the ciphers it has and if one of the decryption opens a number in \mdline{128}$R_{0}$\mdline{128} or \mdline{128}$R_{1}$\mdline{128}, the server sends that number to both Alice and Bob.%mdk
 
-%mdk-data-line={58}
-\subsection{\mdline{58}2.2.\hspace*{0.5em}\mdline{58}Bit Commitment}\label{sec-bit-commitment}%mdk%mdk
+%mdk-data-line={131}
+\subsection{\mdline{131}6.2.\hspace*{0.5em}\mdline{131}Bit Commitment}\label{sec-bit-commitment}%mdk%mdk
 
-%mdk-data-line={60}
-\subsubsection{\mdline{60}2.2.1.\hspace*{0.5em}\mdline{60}Collision-free hashing}\label{sec-collision-free-hashing}%mdk%mdk
+%mdk-data-line={133}
+\subsubsection{\mdline{133}6.2.1.\hspace*{0.5em}\mdline{133}Collision-free hashing}\label{sec-collision-free-hashing}%mdk%mdk
 
-%mdk-data-line={62}
-\paragraph{\mdline{62}Assumption}\label{sec-assumption}%mdk%mdk
+%mdk-data-line={135}
+\paragraph{\mdline{135}Assumption}\label{sec-assumption}%mdk%mdk
 
-%mdk-data-line={64}
-\noindent\mdline{64}The Sender is computationally bounded and the Receiver is all-powerful and more efficient then many others.%mdk
+%mdk-data-line={137}
+\noindent\mdline{137}The Sender is computationally bounded and the Receiver is all-powerful and more efficient then many others.%mdk
 
-%mdk-data-line={66}
-\paragraph{\mdline{66}Solution}\label{sec-solution}%mdk%mdk
+%mdk-data-line={139}
+\paragraph{\mdline{139}Solution}\label{sec-solution}%mdk%mdk
 
-%mdk-data-line={68}
+%mdk-data-line={141}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
-%mdk-data-line={68}
-\item\mdline{68}Alice generates two random bit strings, R1 and R2. \mdline{68} \mdline{68}%mdk
+%mdk-data-line={141}
+\item\mdline{141}Alice generates two random bit strings, R1 and R2. \mdline{141} \mdline{141}%mdk
 
-%mdk-data-line={69}
-\item\mdline{69}Alice generates a message consisting of her random string and the bits (actually, maybe a few bits) that she wishes to commit. (R1, R2, b).%mdk
+%mdk-data-line={142}
+\item\mdline{142}Alice generates a message consisting of her random string and the bits (actually, maybe a few bits) that she wishes to commit. (R1, R2, b).%mdk
 
-%mdk-data-line={70}
-\item\mdline{70}Alice calculates the one-way function value of the message and sends the result and one of the random strings to Bob. H(R1, R2, b), R1.%mdk
+%mdk-data-line={143}
+\item\mdline{143}Alice calculates the one-way function value of the message and sends the result and one of the random strings to Bob. H(R1, R2, b), R1.%mdk
 %mdk
 \end{enumerate}%mdk
 
-%mdk-data-line={72}
-\noindent\mdline{72}This transmission from Alice is evidence of commitment. In step (3), Alice uses a one-way function to prevent Bob from inverting the function and determining the bit. When it\mdline{72}'\mdline{72}s time for Alice to show her bits, the protocol continues:%mdk
+%mdk-data-line={145}
+\noindent\mdline{145}This transmission from Alice is evidence of commitment. In step (3), Alice uses a one-way function to prevent Bob from inverting the function and determining the bit. When it\mdline{145}'\mdline{145}s time for Alice to show her bits, the protocol continues:%mdk
 
-%mdk-data-line={74}
+%mdk-data-line={147}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep,start=4]%mdk
 
-%mdk-data-line={74}
-\item\mdline{74}Alice sends the original message to Bob (R1, R2, b).%mdk
+%mdk-data-line={147}
+\item\mdline{147}Alice sends the original message to Bob (R1, R2, b).%mdk
 
-%mdk-data-line={75}
-\item\mdline{75}Bob calculates the one-way function value of the message and compares the value and R1 with the value and random string received in step (3). If matched, the bits are valid.%mdk
+%mdk-data-line={148}
+\item\mdline{148}Bob calculates the one-way function value of the message and compares the value and R1 with the value and random string received in step (3). If matched, the bits are valid.%mdk
 %mdk
 \end{enumerate}%mdk
 
-%mdk-data-line={77}
-\paragraph{\mdline{77}Advantage}\label{sec-advantage}%mdk%mdk
+%mdk-data-line={150}
+\paragraph{\mdline{150}Advantage}\label{sec-advantage}%mdk%mdk
 
-%mdk-data-line={79}
-\noindent\mdline{79}The advantage of this protocol is that Bob does not have to send any message. Alice sends Bob a message that promises bits, and another message that reveals the bit.%mdk
+%mdk-data-line={152}
+\noindent\mdline{152}The advantage of this protocol is that Bob does not have to send any message. Alice sends Bob a message that promises bits, and another message that reveals the bit.%mdk
 
-%mdk-data-line={81}
-\paragraph{\mdline{81}Principle}\label{sec-principle}%mdk%mdk
+%mdk-data-line={154}
+\paragraph{\mdline{154}Principle}\label{sec-principle}%mdk%mdk
 
-%mdk-data-line={83}
-\noindent\mdline{83}The result Alice promises is a one-way function transformation of the message. Alice cannot cheat and find another message (R1, R2\mdline{83}\textquoteleft{}, b\textquoteright{}\mdline{83}) that satisfies H(R1, R2\mdline{83}\textquoteleft{}, b\textquoteright{}\mdline{83}) = (R1, R2, b). Alice promises the value of b by sending to Bob R1. If Alice does not keep R2 secret, then Bob can calculate H(R1, R2, b’) and (R1, R2, b) and compare which one is equal to what he received from Alice.%mdk
+%mdk-data-line={156}
+\noindent\mdline{156}The result Alice promises is a one-way function transformation of the message. Alice cannot cheat and find another message (R1, R2\mdline{156}\textquoteleft{}, b\textquoteright{}\mdline{156}) that satisfies H(R1, R2\mdline{156}\textquoteleft{}, b\textquoteright{}\mdline{156}) = (R1, R2, b). Alice promises the value of b by sending to Bob R1. If Alice does not keep R2 secret, then Bob can calculate H(R1, R2, b’) and (R1, R2, b) and compare which one is equal to what he received from Alice.%mdk
 
-%mdk-data-line={85}
-\subsubsection{\mdline{85}2.2.2.\hspace*{0.5em}\mdline{85}Pseudo-random generator}\label{sec-pseudo-random-generator}%mdk%mdk
+%mdk-data-line={158}
+\subsubsection{\mdline{158}6.2.2.\hspace*{0.5em}\mdline{158}Pseudo-random generator}\label{sec-pseudo-random-generator}%mdk%mdk
 
-%mdk-data-line={87}
-\paragraph{\mdline{87}Assumption}\label{sec-assumption}%mdk%mdk
+%mdk-data-line={160}
+\paragraph{\mdline{160}Assumption}\label{sec-assumption}%mdk%mdk
 
-%mdk-data-line={89}
-\noindent\mdline{89}After the two stages (commit and revealing) the protocol must obey the
+%mdk-data-line={162}
+\noindent\mdline{162}After the two stages (commit and revealing) the protocol must obey the
 following: for all probabilistic polynomial time Receivers, for all polynomials
-\mdline{91}$p$\mdline{91} and for large enough security parameter \mdline{91}$n$\mdline{91}%mdk
+\mdline{164}$p$\mdline{164} and for large enough security parameter \mdline{164}$n$\mdline{164}%mdk
 
-%mdk-data-line={93}
+%mdk-data-line={166}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
-%mdk-data-line={93}
-\item\mdline{93}After the commit stage Bob can not guess what he has with probability
-more than \mdline{94}$1/2 + 1/p(n)$\mdline{94}%mdk
+%mdk-data-line={166}
+\item\mdline{166}After the commit stage Bob can not guess what he has with probability
+more than \mdline{167}$1/2 + 1/p(n)$\mdline{167}%mdk
 
-%mdk-data-line={95}
-\item\mdline{95}Alice can reveal only one value and if she tries to cheat she is going to
-be caught with probability at least \mdline{96}$1 - 1/p(n)$\mdline{96}%mdk
+%mdk-data-line={168}
+\item\mdline{168}Alice can reveal only one value and if she tries to cheat she is going to
+be caught with probability at least \mdline{169}$1 - 1/p(n)$\mdline{169}%mdk
 %mdk
 \end{enumerate}%mdk
 
-%mdk-data-line={98}
-\paragraph{\mdline{98}Solution}\label{sec-solution}%mdk%mdk
+%mdk-data-line={171}
+\paragraph{\mdline{171}Solution}\label{sec-solution}%mdk%mdk
 
-%mdk-data-line={100}
-\noindent\mdline{100}For a vector \mdline{100}$\vec{R} = r_1, r_2, \dots, r_k$\mdline{100} with \mdline{100}$r_i \in \{0, 1\}$\mdline{100} and with exactly \mdline{100}$q$\mdline{100} indices
-\mdline{101}$i$\mdline{101} such that \mdline{101}$r_i = 1$\mdline{101} let \mdline{101}$G_{\vec{R}}(s)$\mdline{101} denote the vector \mdline{101}$\vec{A} = a_1, a_2, \dots, a_{1k}$\mdline{101} where \mdline{101}$a_i = B_{j(i)}(s)$\mdline{101} and \mdline{101}$j(i)$\mdline{101} is the index of the i − th 1 in \mdline{101}$\vec{R}$\mdline{101}. If \mdline{101}$e_1, e_2 \in \{0, 1\}^q$\mdline{101}, then \mdline{101}$e1 \oplus e2$\mdline{101} denotes the bitwise XOR of \mdline{101}$e_1$\mdline{101} and \mdline{101}$e_2$\mdline{101}.%mdk
+%mdk-data-line={173}
+\noindent\mdline{173}For a vector \mdline{173}$\vec{R} = r_1, r_2, \dots, r_k$\mdline{173} with \mdline{173}$r_i \in \{0, 1\}$\mdline{173} and with exactly \mdline{173}$q$\mdline{173} indices
+\mdline{174}$i$\mdline{174} such that \mdline{174}$r_i = 1$\mdline{174} let \mdline{174}$G_{\vec{R}}(s)$\mdline{174} denote the vector \mdline{174}$\vec{A} = a_1, a_2, \dots, a_{1k}$\mdline{174} where \mdline{174}$a_i = B_{j(i)}(s)$\mdline{174} and \mdline{174}$j(i)$\mdline{174} is the index of the i − th 1 in \mdline{174}$\vec{R}$\mdline{174}. If \mdline{174}$e_1, e_2 \in \{0, 1\}^q$\mdline{174}, then \mdline{174}$e1 \oplus e2$\mdline{174} denotes the bitwise XOR of \mdline{174}$e_1$\mdline{174} and \mdline{174}$e_2$\mdline{174}.%mdk
 
-%mdk-data-line={103}
+%mdk-data-line={176}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep,label=\Alph*.]%mdk
 
-%mdk-data-line={103}
-\item\mdline{103}Commit Stage:
+%mdk-data-line={176}
+\item\mdline{176}Commit Stage:
 
-%mdk-data-line={104}
+%mdk-data-line={177}
 \begin{enumerate}[noitemsep,topsep=\mdcompacttopsep]%mdk
 
-%mdk-data-line={104}
-\item\mdline{104}Bob selects a bit string \mdline{104}$s$\mdline{104} as a random vector \mdline{104}$\vec{R} = (r_1, r_2, \dots, r_{2q})$\mdline{104} where \mdline{104}$r_i \in \{0, 1\}$\mdline{104}
-for \mdline{105}$1 \leq i \leq 2q$\mdline{105} and exactly q bits are 1 and sends it to Alice.%mdk
+%mdk-data-line={177}
+\item\mdline{177}Bob selects a bit string \mdline{177}$s$\mdline{177} as a random vector \mdline{177}$\vec{R} = (r_1, r_2, \dots, r_{2q})$\mdline{177} where \mdline{177}$r_i \in \{0, 1\}$\mdline{177}
+for \mdline{178}$1 \leq i \leq 2q$\mdline{178} and exactly q bits are 1 and sends it to Alice.%mdk
 
-%mdk-data-line={106}
-\item\mdline{106}Alice computes \mdline{106}$c = E(b1, b2,\dots, bm)$\mdline{106}. Alice select a seed \mdline{106}$s \in \{0, 1\}^n$\mdline{106}
-and sends to Bob \mdline{107}$e = c \oplus G_{\vec{R}}(s)$\mdline{107}  (the bitwise XOR of \mdline{107}$G_{\vec{R}}(s)$\mdline{107} and
-c), and for each \mdline{108}$1 \leq i \leq 2q$\mdline{108} such that \mdline{108}$r_i = 0$\mdline{108} she sends \mdline{108}$B_i(s)$\mdline{108}.%mdk
+%mdk-data-line={179}
+\item\mdline{179}Alice computes \mdline{179}$c = E(b1, b2,\dots, bm)$\mdline{179}. Alice select a seed \mdline{179}$s \in \{0, 1\}^n$\mdline{179}
+and sends to Bob \mdline{180}$e = c \oplus G_{\vec{R}}(s)$\mdline{180}  (the bitwise XOR of \mdline{180}$G_{\vec{R}}(s)$\mdline{180} and
+c), and for each \mdline{181}$1 \leq i \leq 2q$\mdline{181} such that \mdline{181}$r_i = 0$\mdline{181} she sends \mdline{181}$B_i(s)$\mdline{181}.%mdk
 %mdk
 \end{enumerate}%mdk%mdk
 
-%mdk-data-line={109}
-\item\mdline{109}Reveal stage: Alice sends \mdline{109}$s$\mdline{109} and \mdline{109}$b1, b2,\dots, bm$\mdline{109}. Bob verifies that for all
-\mdline{110}$1 \leq i \leq 2q$\mdline{110} such that \mdline{110}$r_i = 0$\mdline{110} Alice had sent the correct \mdline{110}$B_i(s)$\mdline{110}, computes
-\mdline{111}$c = E(b1, b2,\dots, bm)$\mdline{111} and \mdline{111}$G_{\vec{R}}(s)$\mdline{111} and verifies that \mdline{111}$e = c \oplus G_{\vec{R}}(s)$\mdline{111}%mdk
+%mdk-data-line={182}
+\item\mdline{182}Reveal stage: Alice sends \mdline{182}$s$\mdline{182} and \mdline{182}$b1, b2,\dots, bm$\mdline{182}. Bob verifies that for all
+\mdline{183}$1 \leq i \leq 2q$\mdline{183} such that \mdline{183}$r_i = 0$\mdline{183} Alice had sent the correct \mdline{183}$B_i(s)$\mdline{183}, computes
+\mdline{184}$c = E(b1, b2,\dots, bm)$\mdline{184} and \mdline{184}$G_{\vec{R}}(s)$\mdline{184} and verifies that \mdline{184}$e = c \oplus G_{\vec{R}}(s)$\mdline{184}%mdk
 %mdk
 \end{enumerate}%mdk
 
-%mdk-data-line={113}
-\subsubsection{\mdline{113}2.2.3.\hspace*{0.5em}\mdline{113}Complexity}\label{sec-complexity}%mdk%mdk
+%mdk-data-line={186}
+\subsubsection{\mdline{186}6.2.3.\hspace*{0.5em}\mdline{186}Complexity}\label{sec-complexity}%mdk%mdk
 
-%mdk-data-line={115}
-\noindent\mdline{115}Alice can reveal only one possible sequence of bits, except with probability less than \mdline{115}$2^{−n}$\mdline{115}%mdk
+%mdk-data-line={188}
+\noindent\mdline{188}Alice can reveal only one possible sequence of bits, except with probability less than \mdline{188}$2^{−n}$\mdline{188}%mdk
 
-%mdk-data-line={117}
-\mdline{117}For any pair of seeds \mdline{117}$s1$\mdline{117} and \mdline{117}$s2$\mdline{117}, the probability that it fools R
-is at most \mdline{118}$(1 - e/2)^q$\mdline{118}, where the probability is taken over the choices of R.
-The number of bits exchanged in the protocol is \mdline{119}$\mathcal{O}(q)$\mdline{119}, and when amortized
-over m bits it is \mdline{120}$\mathcal{O}(qm)$\mdline{120} which is \mdline{120}$\mathcal{O}(1)$\mdline{120}, since C is a good code.%mdk
+%mdk-data-line={190}
+\mdline{190}For any pair of seeds \mdline{190}$s1$\mdline{190} and \mdline{190}$s2$\mdline{190}, the probability that it fools R
+is at most \mdline{191}$(1 - e/2)^q$\mdline{191}, where the probability is taken over the choices of R.
+The number of bits exchanged in the protocol is \mdline{192}$\mathcal{O}(q)$\mdline{192}, and when amortized
+over m bits it is \mdline{193}$\mathcal{O}(qm)$\mdline{193} which is \mdline{193}$\mathcal{O}(1)$\mdline{193}, since C is a good code.%mdk
 
-%mdk-data-line={122}
-\mdline{122}For \mdline{122}$m>n$\mdline{122}, the communication cost is \mdline{122}$\mathcal{O}(m)$\mdline{122}.%mdk
+%mdk-data-line={195}
+\mdline{195}For \mdline{195}$m>n$\mdline{195}, the communication cost is \mdline{195}$\mathcal{O}(m)$\mdline{195}.%mdk
 
-%mdk-data-line={124}
-\subsubsection{\mdline{124}2.2.4.\hspace*{0.5em}\mdline{124}Application}\label{sec-application}%mdk%mdk
+%mdk-data-line={197}
+\subsubsection{\mdline{197}6.2.4.\hspace*{0.5em}\mdline{197}Application}\label{sec-application}%mdk%mdk
 
-%mdk-data-line={126}
-\noindent\mdline{126}Commitments are used in zero-knowledge proofs for two main purposes: first,
+%mdk-data-line={199}
+\noindent\mdline{199}Commitments are used in zero-knowledge proofs for two main purposes: first,
 to allow the Prover to participate in ”cut and choose” proofs where the verifier will be presented with a choice of what to learn, and the Prover will
 reveal only what corresponds to the verifier’s choice. Commitment schemes
 allow the Prover to specify all the information in advance in a commitment,
@@ -234,69 +395,83 @@ are also used in zero-knowledge proofs by the verifier, who will often specify
 their choices ahead of time in a commitment. This allows zero-knowledge
 proofs to be composed in parallel without revealing additional information.%mdk
 
-%mdk-data-line={136}
-\subsection{\mdline{136}2.3.\hspace*{0.5em}\mdline{136}Millionaire Problem}\label{sec-millionaire-problem}%mdk%mdk
+%mdk-data-line={209}
+\subsection{\mdline{209}6.3.\hspace*{0.5em}\mdline{209}Millionaire Problem}\label{sec-millionaire-problem}%mdk%mdk
 
-%mdk-data-line={138}
-\subsubsection{\mdline{138}2.3.1.\hspace*{0.5em}\mdline{138}Problem Description}\label{sec-problem-description}%mdk%mdk
+%mdk-data-line={211}
+\subsubsection{\mdline{211}6.3.1.\hspace*{0.5em}\mdline{211}Problem Description}\label{sec-problem-description}%mdk%mdk
 
-%mdk-data-line={139}
-\noindent\mdline{139}The problem discuss two millionaires, Alice and Bob. They want to know who is much richer but both of them are not willing to let the other millionaire how rich he is. This problem is a classic secure information exchange problem which has already been solved.%mdk
+%mdk-data-line={212}
+\noindent\mdline{212}The problem discuss two millionaires, Alice and Bob. They want to know who is much richer but both of them are not willing to let the other millionaire how rich he is. This problem is a classic secure information exchange problem which has already been solved.%mdk
 
-%mdk-data-line={141}
-\subsubsection{\mdline{141}2.3.2.\hspace*{0.5em}\mdline{141}Algorithm}\label{sec-algorithm}%mdk%mdk
+%mdk-data-line={214}
+\subsubsection{\mdline{214}6.3.2.\hspace*{0.5em}\mdline{214}Algorithm}\label{sec-algorithm}%mdk%mdk
 
-%mdk-data-line={142}
-\noindent\mdline{142}Let binary string \mdline{142}$s=s_ns_{n-1}\cdots s_1$\mdline{142} to represent the money. We then construct two set of string as follows:
-\mdline{143}$S_s^0=\{s_ns_{n-1}\cdots s_{i+1}1|s_i=0\}$\mdline{143}
- and \mdline{144}$S_s^1=\{s_ns_{n-1}\cdots s_{i}|s_i=1\}$\mdline{144}
-We can prove that if \mdline{145}$a>b$\mdline{145}, the two sets \mdline{145}$S_a^1,\ S_b^0$\mdline{145} should have a common element.%mdk
+%mdk-data-line={215}
+\noindent\mdline{215}Let binary string \mdline{215}$s=s_ns_{n-1}\cdots s_1$\mdline{215} to represent the money. We then construct two set of string as follows:
+\mdline{216}$S_s^0=\{s_ns_{n-1}\cdots s_{i+1}1|s_i=0\}$\mdline{216}
+ and \mdline{217}$S_s^1=\{s_ns_{n-1}\cdots s_{i}|s_i=1\}$\mdline{217}
+We can prove that if \mdline{218}$a>b$\mdline{218}, the two sets \mdline{218}$S_a^1,\ S_b^0$\mdline{218} should have a common element.%mdk
 
-%mdk-data-line={147}
-\subsubsection{\mdline{147}2.3.3.\hspace*{0.5em}\mdline{147}Secure Communication}\label{sec-secure-communication}%mdk%mdk
+%mdk-data-line={220}
+\subsubsection{\mdline{220}6.3.3.\hspace*{0.5em}\mdline{220}Secure Communication}\label{sec-secure-communication}%mdk%mdk
 
-%mdk-data-line={148}
-\noindent\mdline{148}To explain the algorithm more easily, we first focus on a simpler problem. There are four kinds of salary for Alice and Bob may have: 10\mdline{148}\$\mdline{148}, 20\mdline{148}\$\mdline{148}, 30\mdline{148}\$\mdline{148}, 40\mdline{148}\$\mdline{148}. We made four lockers for them with corresponding salary tags on the lockers. First Alice put an item in each locker with a tag that has a higher salary than Alice\mdline{148}'\mdline{148}s. Then Bob open every locker with a tag that has a lower salary than Bob\mdline{148}'\mdline{148}s. If Bob find an item in one of the locker, then Alice has a lower salary than Bob.%mdk
+%mdk-data-line={221}
+\noindent\mdline{221}To explain the algorithm more easily, we first focus on a simpler problem. There are four kinds of salary for Alice and Bob may have: 10\mdline{221}\$\mdline{221}, 20\mdline{221}\$\mdline{221}, 30\mdline{221}\$\mdline{221}, 40\mdline{221}\$\mdline{221}. We made four lockers for them with corresponding salary tags on the lockers. First Alice put an item in each locker with a tag that has a higher salary than Alice\mdline{221}'\mdline{221}s. Then Bob open every locker with a tag that has a lower salary than Bob\mdline{221}'\mdline{221}s. If Bob find an item in one of the locker, then Alice has a lower salary than Bob.%mdk
 
-%mdk-data-line={150}
-\mdline{150}We extend this small problem in this way: We replace the salary on the lockers to be \mdline{150}$S_b^0$\mdline{150}.
-If there is an item in one of the lockers when Alice check them with \mdline{151}$S_a^1$\mdline{151}, Alice is richer than Bob.
+%mdk-data-line={223}
+\mdline{223}We extend this small problem in this way: We replace the salary on the lockers to be \mdline{223}$S_b^0$\mdline{223}.
+If there is an item in one of the lockers when Alice check them with \mdline{224}$S_a^1$\mdline{224}, Alice is richer than Bob.
 There is a complicated algorithm to use bitwise rotation and XOR operation to provide implement which can ensure the the server cannot get any information.%mdk
 
-%mdk-data-line={154}
-\section{\mdline{154}3.\hspace*{0.5em}\mdline{154}Our Proposed Solution}\label{sec-our-proposed-solution}%mdk%mdk
+%mdk-data-line={228}
+\section{\mdline{228}7.\hspace*{0.5em}\mdline{228}A Proposed Solution}\label{sec-a-proposed-solution}%mdk%mdk
 
-%mdk-data-line={156}
-\noindent\mdline{156}Based on the the literature research we have done so far and hinted by Manuel, we have a temporary design for this system.%mdk
+%mdk-data-line={230}
+\subsection{\mdline{230}7.1.\hspace*{0.5em}\mdline{230}General System Design}\label{sec-general-system-design}%mdk%mdk
 
-%mdk-data-line={158}
-\mdline{158}User Alice commits whether she\mdline{158}'\mdline{158}s interested in the other users of this system. For instance, she\mdline{158}'\mdline{158}s interested in user Bob and a bit 1 is committed. On the other hand, user Bob also has committed a bit for Alice, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an secret encryption key with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B\mdline{158}'\mdline{158}s secret string under B\mdline{158}'\mdline{158}s public key while the latter bit string is the encryption of A\mdline{158}'\mdline{158}s secret string under B\mdline{158}'\mdline{158}s public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.%mdk
+%mdk-data-line={232}
+\noindent\mdline{232}*\mdline{232}\emph{system design, set up and restrictions}\mdline{232}%mdk
 
-%mdk-data-line={160}
-\mdline{160}\emph{Note: this solution need to be verified further.}\mdline{160}%mdk
+%mdk-data-line={234}
+\mdline{234}To make things simplified while maintain the extendibility, we focus on small groups of people who all know each other, e.g. students in a same interest club, since embarrassment may only occur between two people who know each other and may meet regularly. (For two completely strange people, there\mdline{234}'\mdline{234}s little embarrassment as they might never contact or meet again.) We restrict the quota of such group to be 50 people based on Dunbar\mdline{234}'\mdline{234}s number.%mdk
 
-%mdk-data-line={162}
-\section{\mdline{162}4.\hspace*{0.5em}\mdline{162}Limitation}\label{sec-limitation}%mdk%mdk
+%mdk-data-line={236}
+\mdline{236}In each group, each user can commit one bit for the other members respectively representing his/her interest and no commitment means no interest by default. To be more clear, this bit is by default 0 (on registration), and the user will commit a 1 to show his/her interest on a specific person.%mdk
 
-%mdk-data-line={164}
-\noindent\mdline{164}It\mdline{164}'\mdline{164}s obvious this solution is not efficient with \mdline{164}$\mathcal{O}(n^2)$\mdline{164} complexity and thus cannot scale. Also, some information is leaked because A will know B is not interested in him when he obtains a 0 but commits an 1. But this is not too unacceptable because what we care most is the case B is not interested in A but she/he finally knows that A is interested in her/him.%mdk
+%mdk-data-line={238}
+\mdline{238}Since we are only interested in truthful and potentially long-last relationship, a user is restricted to have three committed 1 at any moment. Users can change their mind, of course, but restrictedly. They can only change one committed 1 to be 0 and set another bit to be 1 each two weeks.%mdk
 
-%mdk-data-line={167}
-\section*{\mdline{167}References}\label{sec-references}%mdk%mdk
+%mdk-data-line={240}
+\mdline{240}Based on the above set-up, the server should match and inform two users if their bits towards the other are both 1 while the server does not know about this at all. Besides, to avoid embarrassment, we should prohibit the situation to happen that user A commit 1 to B while user B commit 0 to A and B knows that A has committed 1 to him/her afterwards.%mdk
 
-%mdk-data-line={168}
-\noindent\mdline{168}John Mikhail, Emad Farag, Edgar Minasyan, Malek Ben Romdhane, \mdline{168}\emph{Cryptographic Dating}\mdline{168}.%mdk
+%mdk-data-line={242}
+\subsection{\mdline{242}7.2.\hspace*{0.5em}\mdline{242}Matching Algorithm}\label{sec-matching-algorithm}%mdk%mdk
 
-%mdk-data-line={170}
-\mdline{170}Hristo Lulev, \mdline{170}\emph{Overview of Bit Commitment Schemes}\mdline{170}.%mdk
+%mdk-data-line={244}
+\noindent\mdline{244}*\mdline{244}\emph{Out of date, to be modified}\mdline{244}%mdk
 
-%mdk-data-line={172}
-\mdline{172}John Ioannidis, Angelos Keromytis, Moti Yung (Eds.), \mdline{172}\emph{Applied Cryptography and Network Security}\mdline{172}%mdk
+%mdk-data-line={246}
+\mdline{246}User Alice commits whether she\mdline{246}'\mdline{246}s interested in the other users of this system. For instance, she\mdline{246}'\mdline{246}s interested in user Bob and a bit 1 is committed. On the other hand, user Bob also has committed a bit for Alice, which in our case for instance is 0. After all users have finished their commitment, the server starts to do the matching. The server will inform all users to set up an secret encryption key with each other by Diffie–Hellman key exchange protocol. With this agreement, such as their public keys and secret strings, user A can insert his private bit in between two bit strings and form a message. The former bit string is the encryption of B\mdline{246}'\mdline{246}s secret string under B\mdline{246}'\mdline{246}s public key while the latter bit string is the encryption of A\mdline{246}'\mdline{246}s secret string under B\mdline{246}'\mdline{246}s public key. B can form his/her message in a similar fashion. The server will then do AND operation over their bit strings and send back the computed result to A and B. As both A and B know clearly about the length of bits they encrypted such that they can get the real result in our example 1 AND 0 easily. On the contrary, the server can only see a long string of zeros and ones and cannot get any meaningful information. Based on AND operation, user B will know nothing from the other side since B commits an 0.%mdk
 
-%mdk-data-line={174}
+%mdk-data-line={248}
+\subsection{\mdline{248}7.3.\hspace*{0.5em}\mdline{248}Limitation}\label{sec-limitation}%mdk%mdk
+
+%mdk-data-line={250}
+\noindent\mdline{250}It\mdline{250}'\mdline{250}s obvious this solution is not efficient with \mdline{250}$\mathcal{O}(n^2)$\mdline{250} complexity and thus cannot scale. Also, some information is leaked because A will know B is not interested in him when he obtains a 0 but commits an 1. But this is not too unacceptable because what we care most is the case B is not interested in A but she/he finally knows that A is interested in her/him.%mdk
+
+%mdk-data-line={253}
+\section*{\mdline{253}References}\label{sec-references}%mdk%mdk
+
+%mdk-data-line={254}
+\noindent\mdline{254}John Mikhail, Emad Farag, Edgar Minasyan, Malek Ben Romdhane, \mdline{254}\emph{Cryptographic Dating}\mdline{254}.\mdline{254}\mdbr
+\mdline{255}Hristo Lulev, \mdline{255}\emph{Overview of Bit Commitment Schemes}\mdline{255}.\mdline{255}\mdbr
+\mdline{256}John Ioannidis, Angelos Keromytis, Moti Yung (Eds.), \mdline{256}\emph{Applied Cryptography and Network Security}\mdline{256}%mdk
+
+%mdk-data-line={258}
 \begin{mdbmargintb}{4em}{}%mdk
 \begin{mdflushright}%mdk
-{\tiny\mdline{175}Created with~\href{https://www.madoko.net}{Madoko.net}.}%mdk
+{\tiny\mdline{259}Created with~\href{https://www.madoko.net}{Madoko.net}.}%mdk
 \end{mdflushright}%mdk
 \end{mdbmargintb}%mdk%mdk
 

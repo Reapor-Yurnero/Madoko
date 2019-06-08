@@ -28,13 +28,15 @@ Logo          : True
 **Review of Design Problem part in slides, consisting of 2-3 pages*\
 **this part includes the context/background, needs and constraints of the problem*
 
-In reality, it's quite common to happen that a boy and a girl of a same class are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused as they are going to meet and study together regularly. But it's extremely regretful to see such a beautiful relationship nipped in the bud. 
+In reality, it's quite common to happen that a boy and a girl of a same class are interested in each other, but neither of them is brave enough to tell the other this secret. This is understandable because telling this secret to the other is running on the risk of losing the existing friendship and strong embarrassment if refused as they are going to meet and study together regularly. But it's extremely regretful to see such beautiful and potential long-last relationship nipped in the bud. 
 
-To help these poor people in these small groups brave to express their love, a secure and private dating platform (website) is needed. The server-side of this system will help match two users if and only if they are mutually interested. By this way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.
+To help these poor people in these small groups brave and relieved to **confess their love**, a secure and private platform (in the form of website, app or anything) is needed. The server-side of this system will help match two users if and only if they are mutually interested. In this way, embarrassed cases could be avoided such that a refused poor guy would never be revealed to his beloved.
 
 However, we should never base the safety of privacy on the morality of service provider, which is the precious lesson taught by the Facebook-Cambridge data leak issue. A reliable mechanism is necessary to ensure that the server side is not able to know anything about the private information it's bridging in our system.
 
 # Quality Function Deployment (QFD Process)
+
+**The QFD Graph 
 
 ## Customer Requirement (CR) - Corresponding Weight
 
@@ -43,15 +45,15 @@ However, we should never base the safety of privacy on the morality of service p
 * Good-looking UI - 2
 * Easy to set up the basic information and get started quickly - 4
 * Easy to find target user within small shared groups - 6
-* No concerns to be revealed (anonymous) - 10
+* No concerns to be revealed to the target if not matched - 10
 * Private information (i.e. users' targets) fully secured - 10
 * Prompt notification on matching - 8
-*  
-* 
+* Match the correct target person only - 10
+* Reliable user identity authentication on system - 10
 
 ## Benchmark Product
 
-Actually, no existing products solve our needs specifically. We are to design a brand new dating system which focus on small groups and embarrassment avoidance.
+Actually, no existing products solve our needs specifically. We are to design a brand new confessing love system which focus on small groups and embarrassment avoidance.
 
 Consider a typical traditional dating system like zhenai.com as our benchmark, evaluate it as 1 = doesn’t satisfy at all
 , 2 = satisfies “slightly”
@@ -65,6 +67,8 @@ Consider a typical traditional dating system like zhenai.com as our benchmark, e
 * No concerns to be revealed (anonymous) - 1
 * Private information (i.e. users' targets) fully secured - 1
 * Prompt notification on matching - 4
+* Match the correct target person only - 3
+* Reliable user identity authentication on system - 2
 
 ## Generated Engineer Specifications
 

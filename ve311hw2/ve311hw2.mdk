@@ -22,6 +22,7 @@ Logo          : True
 ~
 
 (b) The result is very close to our calculated result.\
+
 ![1.2]
 
 [1.2]: images/1.2.png "1.2" { width:auto; max-width:90% }

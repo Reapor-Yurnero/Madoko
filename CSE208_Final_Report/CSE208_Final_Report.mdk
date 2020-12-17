@@ -2,11 +2,10 @@ Title         : Final Project Report for FA20 CSE208
 Author        : Xiaohan Fu
 Affiliation   : UC San Diego
 Email         : x5fu@ucsd.edu
-Bibliography  : ref.bib
+Bibliography  : ref
 
 Colorizer     : javascript
 Bib style     : acm
-Bibliography  : example
 Logo          : False
 
 Doc class     : [12pt]article
@@ -14,13 +13,13 @@ Package       : [left=1in,right=1in,top=1in,bottom=1in,footskip=.25in]geometry
 
 [TITLE]
 
-<!--
+
 ~ Abstract
 There is more in you of good than you know, child of the kindly West.
 Some courage and some wisdom, blended in measure. If more of us valued
 food and cheer and song above hoarded gold, it would be a merrier world.
 ~
--->
+
 
 # Introduction     { #sec-intro }
 
@@ -36,7 +35,7 @@ My initial plan was to use Lattigo as golang is more widely used in distributed 
 
 The application simulates the situation where an anonymous rider needs to find the closest driver around to pick her up, hinted by the [sample code](https://github.com/ldsec/lattigo/blob/master/examples/bfv/main.go) of Lattigo [@lattigo]. On top of it, batching and serialization is ultized. The locations of the rider and drivers are represented as points in a rectangular grid. Server knows that the rider and some drivers are located within this area (this grid), but should not know their exact coordinates.
 
-I strongly recommend to read the well-commented source code for more details.
+I strongly recommend to read the well-commented source code and run the application to see the output report for more details.
 
 ## Workflow
 
@@ -50,6 +49,10 @@ The workflow in general is:
 4. Drivers encrypt their own coordinates with the rider's `pk` and send to the server;
 5. The server evaluates the squared distance between the rider and each of the drivers homomorphically with relinearization after each operation and then send back to the rider;
 6. The rider decrypts the evaluation ciphertext `result` with her `sk`, and identifies the closest driver.
+
+~ Note
+Coordinates of the rider and drivers are randomly generated for each execution.
+~
 
 The security parameters chosen in Step 1 is:
 
@@ -66,22 +69,22 @@ A relatively small polynomial modulus was used here for small ciphertext size an
 As hinted by the documentation of SEAL [@sealcrypto], I used batching for full utilization of the the plaintext polynomial.  The total size of the batching vector is exactly the polynomial modulus degree $N$. 
 
 In Step 2, the plaintext that the rider is encrypting is not a single pair of her coordinates (rider_x, rider_y), but in the format of 
-~ Center
-\[rider_x, rider_y, rider_x, rider_y, ... ,rider_x, rider_y\].
+~ Math
+[rider_x, rider_y, rider_x, rider_y, ... ,rider_x, rider_y].
 ~
-Accordingly, in step 4, each driver is encrypting its coordinates in the format of
-~ Center
-\[0, 0, driver\[1\]_x, driver\[1\]_y, ... , 0, 0\]
+Accordingly, in step 4, each driver is encrypting its coordinates in the format where for $i$-th driver, all coordinates are zero except ($2i$)-th and ($2i$+1)-th coordinates. For example, for driver\[1\], it looks like:
+~ Math
+[0, 0, driver[1]_x, driver[1]_y, ... , 0, 0].
 ~
-  where for $i$-th driver, all coordinates are zero except ($2i$)-th and ($2i$+1)-th coordinates. 
+
 
 Under this setup, in Step 5, the server just need to evaluate the summation of all drivers' ciphertexts and substract the rider's ciphertext from it, which gives a ciphertext which can be decrypted to:
-~ Center
-\[driver\[0\]_x - rider_x, driver\[0\]_y - rider_y, driver\[1\]_x - rider_x, driver\[1\]_y - rider_y, ... \]
+~ Math
+[driver[0]_x - rider_x, driver[0]_y - rider_y, driver[1]_x - rider_x, driver[1]_y - rider_y, ... ]
 ~
 , and then apply square inplace to obtain the evaluation `result`.
 
-Therefore, the distance between the rider and $i$-th driver can be obtained by (result[$2i$]+result[$2i$+1]) immediately after the decryption. The rider then can find the closest driver easily.
+Therefore, the distance between the rider and $i$-th driver can be obtained by `result[2i]+result[2i+1]` immediately after the decryption. The rider then can find the closest driver easily.
 
 ~ Note
 Because of the limitation of batching slots available, We can have at most $N/2$ drivers. 
@@ -89,7 +92,7 @@ Because of the limitation of batching slots available, We can have at most $N/2$
 
 ## Serialization and Communication Channel
 
-I didn't write a pair of real distributed client-server applications, but used two shared streams to simulate the communication between client and server. It can be transformed to two client-side and server-side applications with minimum efforts by replacing the dummy streams used here with a real data stream for `TCP/UDP`. 
+I didn't write a pair of client-server applications, but used two shared streams to simulate the communication between client and server. It can be transformed to two client-side and server-side applications with minimum efforts by replacing the dummy streams used here with a real data transfer stream for `TCP/UDP`. 
 
 - `parm_stream:` used by the server to pass the parameters setting to clients.
 - `data_stream:` used by servers and clients to exchange public keys, linearization keys, and ciphertexts.

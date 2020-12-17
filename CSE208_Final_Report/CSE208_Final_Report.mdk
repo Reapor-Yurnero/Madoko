@@ -2,9 +2,10 @@ Title         : Final Project Report for FA20 CSE208
 Author        : Xiaohan Fu
 Affiliation   : UC San Diego
 Email         : x5fu@ucsd.edu
+Bibliography  : ref.bib
 
 Colorizer     : javascript
-Bib style     : plainnat
+Bib style     : acm
 Bibliography  : example
 Logo          : False
 
@@ -27,15 +28,15 @@ In this project, my major accomplishments are:
 
 * Exploration of multiple FHE libraries, including SEAL, Lattigo, and Palisade;
 * Better understanding of CMake and 3rd party libraries for C++;
-* Implementation of an anonymous rider-driver pairing application with batching and serialization.
+* Implementation of an anonymous rider-driver pairing application with batching and serialization (code available [here](https://github.com/Reapor-Yurnero/obliviousRiding_SEAL)).
 
 My initial plan was to use Lattigo as golang is more widely used in distributed systems. However after installed Lattigo and played with the samples a little bit, I found that the documentation is not that good and I felt a little bit confused with their APIs. Also, I felt I hadn't written C++ for a while so it might be a good idea to take a look at the C++ libraries. I studied Palisade, SEAL, and HElib and found their APIs to be generally similar. When building and installing Palisade, I met some problems that I couldn't resolve so I moved on to Microsoft SEAL. It has the best documentation (inline comments in source code) from my perspective as well. The installation process was non-trivial and interesting as I have never systematically used CMake and 3rd party libraries for C++ in the past. But fortunately everything worked well.
 
 # Implementation
 
-The application simulates the situation where an anonymous rider needs to find the closest driver around to pick her up, hinted by the sample code of Lattigo.
+The application simulates the situation where an anonymous rider needs to find the closest driver around to pick her up, hinted by the [sample code](https://github.com/ldsec/lattigo/blob/master/examples/bfv/main.go) of Lattigo [@lattigo]. On top of it, batching and serialization is ultized. The locations of the rider and drivers are represented as points in a rectangular grid. Server knows that the rider and some drivers are located within this area (this grid), but should not know their exact coordinates.
 
-The locations of the rider and drivers are represented as points in a rectangular grid. Server knows the rider and drivers are located within this area (this grid), but should not know the exact coordinates.
+I strongly recommend to read the well-commented source code for more details.
 
 ## Workflow
 
@@ -62,7 +63,7 @@ A relatively small polynomial modulus was used here for small ciphertext size an
 
 ## Batching
 
-As hinted by the documentation of SEAL [], I used batching for full utilization of the the plaintext polynomial.  The total size of the batching vector is exactly the polynomial modulus degree $N$. 
+As hinted by the documentation of SEAL [@sealcrypto], I used batching for full utilization of the the plaintext polynomial.  The total size of the batching vector is exactly the polynomial modulus degree $N$. 
 
 In Step 2, the plaintext that the rider is encrypting is not a single pair of her coordinates (rider_x, rider_y), but in the format of 
 ~ Center
@@ -110,5 +111,6 @@ Here are some interesting findings that I observed when playing with my applicat
 # Conclusion
 
 In this project, I experienced how to use a FHE library to implement an application with FHE in practice. I better understood the knowledge in lectures and learned how to play with 3rd party libraries in C++. I implemented an application for oblivious riding with batching and serialization.
+
 
 [BIB]

@@ -1,0 +1,10 @@
+~ begin bibliography { .bib-numeric; cite-style:"numeric:'[',']',', '" ; caption:"2" ; data-style:"numeric" ; data-style:'madoko-numeric';  }
+~ begin bibitem {id:"lattigo"; cite-authors:"2020b"; cite-authors-long:"2020b"; cite-label:"1"; caption:"Lattigo v2.1.0&nl;2020b, "; data-line:"ref.bib:10"; searchterm:"Lattigo%20v2.1.0%202020b%2C%20"; spellcheck:"false"; bibitem-label:"\[1\]"}
+\/&ldquo;Lattigo v2.1.0.&rdquo; Online: <http://github.com/ldsec/lattigo>. Dec. 2020. EPFL-LDS.
+~ end bibitem
+
+~ begin bibitem {id:"sealcrypto"; cite-authors:"2020a"; cite-authors-long:"2020a"; cite-label:"2"; caption:"Microsoft SEAL (release 3.6)&nl;2020a, "; data-line:"ref.bib:1"; searchterm:"Microsoft%20SEAL%20release%203.6%202020a%2C%20"; spellcheck:"false"; bibitem-label:"\[2\]"}
+\/&ldquo;Microsoft SEAL (release 3.6).&rdquo; <https://github.com/Microsoft/SEAL>. Nov. 2020. Microsoft Research, Redmond, WA.
+~ end bibitem
+
+~ end bibliography

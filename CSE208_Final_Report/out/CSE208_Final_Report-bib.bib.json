@@ -1,0 +1,36 @@
+{
+  "_preamble": "",
+  "_comments": "",
+  "sealcrypto": {
+    "id": "sealcrypto",
+    "type": "no-type",
+    "title": "Microsoft SEAL (release 3.6)",
+    "issued": {
+      "date-parts": [
+        [
+          "2020",
+          "11"
+        ]
+      ]
+    },
+    "publisher": "<https://github.com/Microsoft/SEAL>",
+    "note": "Microsoft Research, Redmond, WA.",
+    "_line": "ref.bib:1"
+  },
+  "lattigo": {
+    "id": "lattigo",
+    "type": "no-type",
+    "title": "Lattigo v2.1.0",
+    "issued": {
+      "date-parts": [
+        [
+          "2020",
+          "12"
+        ]
+      ]
+    },
+    "publisher": "Online: <http://github.com/ldsec/lattigo>",
+    "note": "EPFL-LDS",
+    "_line": "ref.bib:10"
+  }
+}

@@ -8,7 +8,7 @@ Bib style     : plainnat
 Bibliography  : example
 Logo          : True
 
-Doc class     : [10pt]article
+Doc class     : [12pt]article
 
 [TITLE]
 
@@ -24,37 +24,74 @@ food and cheer and song above hoarded gold, it would be a merrier world.
 
 In this project, my major accomplishments are:
 
-* Exploration of multiple FHE libraries, including SEAL, Lattigo, and Pallisade.
-* Some **mathematics**;
-* And some source code;
-* And references to Tex books [@Knuth:TeX;@Lamport:LaTeX;@Goo93;@Fberg04] and others [@Grandstrand]. 
-  Textual citations, like @Knuth:TeX are also possible.
+* Exploration of multiple FHE libraries, including SEAL, Lattigo, and Palisade;
+* Better understanding of CMake and 3rd party libraries for C++;
+* Implementation of a simple anonymous rider-driver pairing application with batching.
 
-# Content
+Initially I planned to use Lattigo as I preferred golang to C++ in usual. However after installed Lattigo and played with the samples a little bit, I found that the documentation is not that good and I felt a little bit confused with their APIs. Also, I felt I hadn't written C++ for a while so it might be a good idea to take a look at the C++ libraries. I studied Palisade, SEAL, and HElib and found their APIs to be generally similar. When building and installing Palisade, I met some problems that I couldn't resolve so I moved on to Microsoft SEAL and succeeded. It has the best documentation (inline comments in source code) from my perspective as well. I have never systematically used CMake and 3rd party libraries for C++ in the past. This was a very meaningful experience for me.
 
-A definition of $e$ is shown in Equation [#euler] proved by Theorem [#th-euler]:
+# Implementation
 
-~ Equation { #euler }
-e = \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n
+My simple application simulates the situation where an anonymous rider needs to find the closest driver around to pick her up, hinted by the sample code of Lattigo. 
+
+The locations of the rider and drivers are represented as points in a rectangular grid. Server knows the rider and drivers are located within this area (this grid), but should not know the exact coordinates.
+
+## Workflow
+
+The application is simulating the sense of server-client communications. The workflow in general is:
+
+1. The server publishes and sets the parameters of the FHE context.
+2. The rider follows the parameters and generated a pair of pk and sk, and then she uses either pk or sk to encrypt her coordinates to send to the server;
+3. The server broadcasts her pk to all the drivers in this region;
+4. Drivers encrypt their own coordinates with the rider's pk and send to the server;
+5. The server evaluates the squared distance between the rider and each of the drivers homomorphically with relinearization after each operation and then send back to the rider;
+6. The rider decrypts the evaluation result with her sk, and identifies the closest driver.
+
+In step 1, the security parameters chosen is:
+
+|--------------|--------------|-----|
+| polynomial modulus degree    | ciphertext coefficient modulus   |plaintext modulus|
++:------------:+:------------:+:----:+
+|$N=2^{13}=8192$|218 (suggested by the helper function)|$T=65929217$|
+|--------------|--------------|---|
+{  }
+A relatively small polynomial modulus was used here for smaller ciphertext size and faster execution. To support batching, the plaintext modulus $T$ was chosen to be a prime number congruent to 1 modulo 2*poly_modulus_degree ($T = 65929217$ specifically.
+
+## Batching
+
+As hinted by the documentation of SEAL, I used batching for full utilization of the the plaintext polynomial.  The total size of the batching vector is exactly the polynomial modulus degree $N$. 
+
+In step 2, the plaintext that the rider is encrypting is not a single pair of her coordinates (rider_x, rider_y), but in the format of 
+~ Center
+\[rider_x, rider_y, rider_x, rider_y, ... ,rider_x, rider_y\].
 ~
-
-~ Theorem {#th-euler; caption:"Euler's theorem" }
-More math here.
+Accordingly, in step 4, each driver is encrypting its coordinates in the format of
+~ Center
+\[0, 0, driver\[1\]_x, driver\[1\]_y, ... , 0, 0\]
 ~
-
-Let's program some Javascript:
-``` javascript
-function hello() {
-  return "hello world!"
-}
-```
+  where for $i$-th driver, all coordinates are zero except ($2i$)-th and ($2i$+1)-th coordinates. Under this setup, in step 5, the server just need to evaluate the sum of all drivers' ciphertexts and substract the rider's ciphertext from it, and then square inplace to obtain a ciphertext result that could be decrypted to
+~ Center
+\[driver\[0\]_x - rider_x, driver\[0\]_y - rider_y, driver\[1\]_x - rider_x, driver\[1\]_y - rider_y, ... \].
+~
+Therefore, the distance between the rider and $i$-th driver can be obtained by (result[$2i$]+result[$2i$+1]) immediately and the rider can find the closest driver easily.
 
 ~ Note
-The syntax highlighting works in the PDF output too.
+Because of the limitation of batching slots available, We can have at most $N/2$ drivers there. 
 ~
+
+## Some Notable Observations
+
+Here are some interesting findings that I observed when playing with my application:
+
+1. The documentation of SEAL claims that the library built with `clang++` can run significantly faster than the one built with `g++`. But my program linked with them respectively does not show much difference given a relatively long execution time ~15s. 
+2. The noise budget remaining in the result ciphertext does not change much from maximum number of drivers (96 bits) i.e. $N/2$ drivers to 3 drivers (101 bits). 
+3. The noise budget remaining in the result ciphertext does not change at all with or without relinearization after the additions and square operation. I can't explain this well.
+4. A smaller plaintext modulus gives more remaining noise budget but has no impact on the overall running time.
+5. A smaller polynomial modulus degree i.e. $N=4096$ with maximum drivers configured gives a much faster running speed from 15s to 2.5s, while at the cost of a much smaller remaining noise budget from 96 bits to 8 bits.
+
 
 # Conclusion
 
-Really fun to write Markdown :-)
+In this project, I experienced how to use a FHE library to implement an application with FHE in practice. It was interesting and helpful.
 
 [BIB]
